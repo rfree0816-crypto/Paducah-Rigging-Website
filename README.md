@@ -50,6 +50,36 @@ in order:
 First one that exists wins. If none do, the built-in line drawing is used.
 47 images (18 category + 29 group) covers all items.
 
+## Running locally
+
+No build step. Either open `index.html` directly in a browser, or serve it
+(needed for the photo-lookup `fetch`/`onerror` chain to behave like it will
+in production):
+
+```
+npm run serve      # python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000/index.html`.
+
+## Testing
+
+```
+npm install
+npx playwright install chromium   # once per machine
+npm test
+```
+
+`npm test` starts its own throwaway local server, drives the page with
+Playwright/Chromium, and shuts the server down when done — nothing is left
+running afterward. It covers everything `CLAUDE.md`'s Testing section calls
+for: every category and sub-group renders without `undefined`/`NaN`, the
+logged-out catalog never shows a `$` price, stale-SKU cart/order data is
+pruned correctly, an empty category/group renders a graceful empty state
+instead of crashing, tier boundaries resolve to the right tier name, and a
+full sign-in → browse → cart → checkout → order-history → account loop runs
+clean for every seeded demo account. See `tests/e2e.spec.js`.
+
 ## Deploying with GitHub Pages
 
 Settings → Pages → Build and deployment → Source: **Deploy from a branch**,

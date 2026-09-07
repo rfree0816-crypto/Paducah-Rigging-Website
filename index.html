@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PHATRIGGING — Client Order Portal</title>
+<meta name="description" content="Phatrigging client order portal — rigging hardware, slings, chain, and hoists. Browse the catalog, sign in for contract pricing.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%2314181C'/%3E%3Cpath d='M30 46a20 20 0 0 1 40 0' stroke='%23F2C300' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 46v10M70 46v10' stroke='%23F2C300' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 58h56' stroke='%23F2C300' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,11 +50,20 @@ a{color:var(--oxide)}
 .nav button{
   background:transparent;border:1px solid transparent;color:var(--galv);
   padding:7px 11px;font-family:'Oswald';font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;
+  flex:none;white-space:nowrap;
 }
 .nav button:hover{color:#fff;border-color:#39424c}
 .nav button.on{background:var(--safety);color:var(--ink);font-weight:600}
 .nav .count{font-family:'IBM Plex Mono';font-size:11px}
 .wrap{max-width:1140px;margin:0 auto;padding:20px 16px 72px}
+@media(max-width:700px){
+  .topbar-in{flex-wrap:wrap;padding:10px 12px 8px}
+  .nav{
+    margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:4px;
+    padding-bottom:2px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  }
+  .nav button{padding:8px 10px;font-size:12px}
+}
 
 /* ---------- stamped tag: the signature element ---------- */
 .tag{

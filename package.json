@@ -1,0 +1,24 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Prototype client ordering portal. Single self-contained HTML file, no build step, no dependencies. Open `index.html` in a browser and it runs.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "test": "node tests/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfree0816-crypto/Paducah-Rigging-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rfree0816-crypto/Paducah-Rigging-Website/issues"
+  },
+  "homepage": "https://github.com/rfree0816-crypto/Paducah-Rigging-Website#readme",
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}

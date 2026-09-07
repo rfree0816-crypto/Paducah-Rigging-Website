@@ -148,22 +148,44 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
 
 ## Testing
 
-There's no test framework. What worked in the chat session was extracting the
-`<script>` block and running it under Node with a stubbed DOM, then calling the
-render functions and asserting on the returned HTML strings. Worth rebuilding
-as real test files. Things that repeatedly caught bugs:
+Real test suite now exists: `tests/e2e.spec.js`, run with `npm test`
+(installs Playwright + Chromium once, then `npx playwright install chromium`;
+see README). It drives a live page with a real browser rather than stubbing
+the DOM under Node, since the render functions touch real DOM nodes and
+`localStorage`. Covers every case that previously caught real bugs:
 
-- Render every category and group, assert no `undefined` or `NaN` in the output.
-- Assert no `$` appears in the logged-out catalog HTML (pricing leak).
-- Load saved state referencing SKUs that no longer exist (crashed the app twice).
-- Render a category group containing zero items (crashed once).
-- Check tier boundary values against expected tier names.
+- Renders every category and every sub-group (public and signed-in), asserts
+  no `undefined` or `NaN` in the output.
+- Asserts no `$` appears anywhere in the logged-out catalog HTML (pricing leak).
+- Calls `sanitize()` on state referencing SKUs that no longer exist and checks
+  the dead lines/orders are dropped (this crashed the app twice historically).
+- Temporarily injects a category/group with zero items and asserts
+  `selectorHTML()` renders a graceful empty state instead of throwing (crashed
+  once historically).
+- Checks tier boundary values ($0, $149,999, $150,000, $299,999, $300,000,
+  $499,999, $500,000) resolve to the expected tier name.
+- Runs the full sign-in → browse every category → add to cart → checkout →
+  place order → order history → account loop for every seeded demo account.
+- Account request form: empty submit is rejected, valid submit succeeds.
+
+Re-run this after any change to `ITEMS`, `CATS_META`, `TIERS`, or the render
+functions. 305 assertions currently pass clean.
 
 ## Next steps, in Ryan's stated order
 
 1. Item detail — photos and load limits
 2. Account request form — DONE, needs `ACCOUNT_ENDPOINT` wired to Formspree
-3. Get it into the repo and onto GitHub Pages
+3. Get it into the repo and onto GitHub Pages — DONE (repo exists, see README
+   for the GitHub Pages steps; still needs someone to flip the Pages setting on)
 
 Immediate technical priorities regardless of order: real item weights, then
 wiring the two endpoints so the thing actually notifies someone.
+
+## Fixed since handoff
+
+- Signed-in top nav (Catalog/Cart/Orders/Account/Sign out) overlapped the
+  brand lockup and got clipped below ~700px width. Now wraps to its own
+  horizontally-scrollable row on narrow screens. CSS only, in the
+  `.topbar-in`/`.nav` rules.
+- Added a favicon (inline SVG, no new file) — was 404ing on every page load.
+- Added `tests/e2e.spec.js` + `npm test` — see Testing section above.

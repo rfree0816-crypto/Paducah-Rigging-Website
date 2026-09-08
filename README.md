@@ -100,4 +100,16 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
 - **Product data needs verification.** Item weights are placeholder estimates by
   category and drive the freight calculation. Load limits, capacity ratings, and
   the safety disclaimer copy are draft and must be confirmed against manufacturer
-  literature before this is customer-facing.
+  literature before this is customer-facing. The 32 "Domestic" shackles are a
+  partial exception — they carry a rated-capacity figure pulled from Crosby/CM's
+  own published catalog PDFs, matched by exact vendor part number, with the
+  source cited in the product panel. It's still an unreviewed draft figure, not
+  a substitute for the marking stamped on the physical part. No other category,
+  and none of the "Import" shackles (they carry no vendor part number to trace
+  back to literature), have real capacity data yet.
+- **No product photos.** `photoHTML()` falls back to built-in SVG line art for
+  every item. Real photos need to come from the Crosby/CM/Harrington/Peerless
+  dealer media libraries or from shooting the actual stock — generic/stock/
+  AI-generated images aren't used here because they'd show the wrong part next
+  to a real SKU and price. See `images/README.md` and
+  `phatrigging-photo-shotlist.csv` for the filenames needed.

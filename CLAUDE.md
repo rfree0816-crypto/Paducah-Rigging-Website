@@ -85,9 +85,19 @@ Rules applied when generating `ITEMS`:
    `wtEst` and shown as "(est)". Freight is calculated from weight, so the
    shipping calculator is decorative until real weights exist. This is the
    single most valuable thing to fix.
-2. **Load limits are mostly missing.** Only nylon slings have real ratings
-   (vertical/choker/basket, from a chart Ryan supplied). Everything else shows
-   no capacity. Ryan said he'd work on these.
+2. **Load limits are mostly missing.** Nylon slings have real ratings
+   (vertical/choker/basket, from a chart Ryan supplied). As a scoped pilot, the
+   32 "Domestic" shackles now carry a `cap: {rating, src}` field — a single WLL
+   figure pulled from Crosby's official G-209/G-2130 catalog PDF and CM's Long
+   Reach brochure, matched by the exact vendor part number already in `ITEMS`,
+   with the source cited inline in the UI (see `selectorHTML()`). The 29
+   "Import" shackles have NO vendor part number in the data at all, so they were
+   deliberately left blank rather than guessed — there's no way to trace an
+   unnumbered import part to real literature. Everything outside Shackles
+   (hooks, hoists, chain, master links, snatch blocks, wedge sockets,
+   turnbuckles, wire rope clips...) still shows no capacity. **This is still
+   draft/unreviewed** — see Safety-critical content below before treating any
+   of it as final. Ryan said he'd work on the rest.
 3. **98 of 498 items have no vendor part number** — concentrated in import
    shackles (29), poly round slings (21), rope (20), clips (13). The Part #
    field is hidden entirely for those items, per Ryan's instruction.
@@ -118,6 +128,16 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
   rows (6" 2-ply vertical read 18800, 12" 2-ply choker read 26830). The
   conservative arithmetic-consistent values (16800, 26880) are in the file.
   Both need confirming against printed manufacturer literature.
+- The 32 Domestic shackle `cap` ratings added as a pilot are sourced from
+  Crosby's own 2019 catalog PDF (pages 77 & 79, thecrosbygroup.com) and CM's
+  official Long Reach Shackle brochure, matched to this catalog's exact vendor
+  part numbers (e.g. 1018419 → G-209 3/8" SPA → 1 ton) and cross-checked
+  against a second independent retailer citation per size before entry. Full
+  citation is shown in the UI next to the rating. This is a published-spec
+  lookup, not an engineering judgment call — but it is still unreviewed by
+  Ryan or a safety professional, and the UI says so. Do not extend this
+  pattern to other categories or to the 29 unnumbered Import shackles without
+  a real vendor part number to trace back to literature.
 
 ## Commercial decisions already made
 
@@ -173,7 +193,12 @@ functions. 305 assertions currently pass clean.
 
 ## Next steps, in Ryan's stated order
 
-1. Item detail — photos and load limits
+1. Item detail — photos and load limits. Load limits partially started: see
+   "Known data gaps" #2 for the 32 Domestic shackles now sourced from Crosby/CM
+   catalog literature. Photos still untouched — needs real dealer photography
+   or Ryan's own stock shots, per the sourcing rule above; generic/stock/AI
+   images were intentionally not substituted because they'd misrepresent the
+   specific vendor SKU next to its real part number and price.
 2. Account request form — DONE, needs `ACCOUNT_ENDPOINT` wired to Formspree
 3. Get it into the repo and onto GitHub Pages — DONE (repo exists, see README
    for the GitHub Pages steps; still needs someone to flip the Pages setting on)
@@ -189,3 +214,8 @@ wiring the two endpoints so the thing actually notifies someone.
   `.topbar-in`/`.nav` rules.
 - Added a favicon (inline SVG, no new file) — was 404ing on every page load.
 - Added `tests/e2e.spec.js` + `npm test` — see Testing section above.
+- Added sourced `cap` (rated capacity) data to the 32 Domestic shackle items,
+  pulled from Crosby/CM published catalog literature and cited in the UI —
+  see "Known data gaps" #2 above. Deliberately did NOT add photos or fabricate
+  ratings for anything else in this pass; both remain open per the sourcing
+  and safety rules in this file.

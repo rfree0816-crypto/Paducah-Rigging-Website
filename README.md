@@ -97,12 +97,12 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
   endpoint configured, nobody is notified of anything.
 - **If this repo is public, so is every price in it.** The catalog data, including
   marked-up costs, is embedded in `index.html` in plain text.
-- **Product data needs verification.** Item weights are placeholder estimates by
-  category and drive the freight calculation. Load limits, capacity ratings, and
-  the safety disclaimer copy are draft and must be confirmed against manufacturer
-  literature before this is customer-facing. Eight categories are a partial
-  exception, sourced by exact vendor part number with the citation shown in the
-  product panel:
+- **Product data needs verification.** Most item weights are still placeholder
+  estimates by category and drive the freight calculation. Load limits, capacity
+  ratings, and the safety disclaimer copy are draft and must be confirmed against
+  manufacturer literature before this is customer-facing. Eight categories are a
+  partial exception for load limits, sourced by exact vendor part number with the
+  citation shown in the product panel:
   - The 32 "Domestic" shackles carry a rated-capacity figure pulled from
     Crosby/CM's own published catalog PDFs.
   - 36 of 74 Hooks items (18 Eye hooks, 8 Swivel hooks, 10 Shur-Loc hooks)
@@ -150,6 +150,22 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
   an efficiency percentage of the wire rope's own breaking strength, not a
   fixed WLL per fitting part number, so a single-value rating would
   misrepresent how they actually work.
+
+  A separate **real-weight sourcing pass** (same source-and-cite method, new
+  `wtSrc` citation field, shown as "(sourced)" instead of "(est)") has started
+  on the 12 categories slated to survive to launch (Shackles, Hooks, Hoists,
+  Chain, Wire rope clips, Nylon slings, Poly round slings, Master links,
+  Wedge sockets, Rope, Tools, Shop supplies):
+  - 32 of 61 Shackles items (all 16 "SPA"/Crosby G-209 and 13 "SAS"/Crosby
+    G-2130 Domestic items, plus 3 CM Long Reach shackles) carry a sourced
+    ship weight from Crosby's/CM's official catalog weight tables. One size
+    (G-2130 7/8") disagreed between the catalog PDF (3.95 lb) and two
+    independently-agreeing distributors (3.87 lb) — the distributor figure
+    was used. One item's stored part number (`M71519`) doesn't exist in any
+    source; it's treated as a likely typo for CM's real `M7151P` part
+    (weight applied on that basis, flagged in the citation) because the
+    item's existing capacity rating matches M7151P exactly. The 29 "Import"
+    shackles have no vendor part number and are left on the placeholder.
 - **No product photos.** `photoHTML()` falls back to built-in SVG line art for
   every item. Real photos need to come from the Crosby/CM/Harrington/Peerless
   dealer media libraries or from shooting the actual stock — generic/stock/

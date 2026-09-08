@@ -81,10 +81,30 @@ Rules applied when generating `ITEMS`:
 
 ## Known data gaps — highest value work first
 
-1. **No item weights.** `wt` is a placeholder estimate per category, flagged
-   `wtEst` and shown as "(est)". Freight is calculated from weight, so the
-   shipping calculator is decorative until real weights exist. This is the
-   single most valuable thing to fix.
+1. **Most item weights are still placeholders.** `wt` is a flat per-category
+   estimate for items flagged `wtEst` and shown as "(est)". Freight is
+   calculated from weight, so the shipping calculator is decorative for any
+   item still on the placeholder. A real-weight sourcing pass has started,
+   following the same source-and-cite methodology as the `cap`/`wll` work
+   below: sourced items get a real per-item `wt`, lose the `wtEst` flag, and
+   gain a `wtSrc` citation string (rendered in the UI, shown as "(sourced)").
+   User has named 12 categories to prioritize for launch (Shackles, Hooks,
+   Hoists, Chain, Wire rope clips, Nylon slings, Poly round slings, Master
+   links, Wedge sockets, Rope, Tools, Shop supplies) — several other
+   categories will likely be cut before go-live.
+   - **Shackles** — 32 of 61 items now carry a sourced `wt`/`wtSrc`: all 16
+     "SPA" (Crosby G-209 screw-pin) and 13 "SAS" (Crosby G-2130 bolt-type)
+     Domestic items from Crosby's official catalog weight tables, plus the
+     3 CM Long Reach shackles. Two things worth flagging: (a) the G-2130
+     7/8" catalog table says 3.95 lb, but two independent distributors
+     selling that exact stock number (1019533) both say 3.87 lb — the
+     distributor consensus was used; (b) the catalog's stored part number
+     for the 5/8" Long Reach shackle (`M71519`, item `PH-00161`) returns no
+     matches anywhere online — the real CM part is almost certainly
+     `M7151P` (its weight, ~1.80 lb, is used), since that item's existing
+     7,000 lb `cap` rating exactly matches M7151P's real-world WLL. Left at
+     the placeholder: all 29 "Import" shackles, which have no vendor part
+     number at all.
 2. **Load limits are mostly missing.** Nylon slings have real ratings
    (vertical/choker/basket, from a chart Ryan supplied). The sourced-`cap`
    pilot that started with Shackles has now been extended to Hooks and Hoists:

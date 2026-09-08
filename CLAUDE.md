@@ -130,8 +130,55 @@ Rules applied when generating `ITEMS`:
      (blackbearhoists.com). Added/updated 4 `NOTES['Hoists|<group>']`
      entries (CM, Harrington, Tiger, Black Bear) with the same
      citation-and-disclaimer pattern used for Shackles/Hooks.
-   - Everything else (chain, master links, snatch blocks, wedge sockets,
-     turnbuckles, wire rope clips...) still shows no capacity.
+   - **Master links** — all 20 items carry sourced `cap` data (100% part
+     -number coverage, same as Hoists — no blanks needed). 14 Crosby alloy
+     items: 9 A-342 master links confirmed against the Crosby Group's
+     official catalog page 134 PDF (thecrosbygroup.com), 5 A-345 master
+     link assemblies confirmed against the Crosby Group's official catalog
+     page 135 PDF, both matched by exact Crosby stock number. 6 CARTEC
+     clevis master link sets (2-leg and 4-leg, in 5/16"/3/8"/1/2" chain
+     sizes): confirmed against the CDFXA WLL table published by All
+     Material Handling, the CDFXA importer/distributor
+     (allmaterialhandling.com), cross-checked against Holloway Houston
+     Interests' per-part listings (hhilifting.com), matched by exact part
+     number.
+   - **Snatch blocks** — all 12 items carry sourced `cap` data (100% part
+     -number coverage, no blanks needed). Crosby/McKissick 417/418/419/420
+     series, confirmed against three official kitocrosby.com catalog page
+     variants (hook-fitting single sheave 2-12t; shackle-fitting single
+     sheave 2-12t; hook-fitting single sheave 15-30t, for the one 15-ton
+     item), matched by exact stock number, cross-checked against
+     independent retailer WLL listings (lifting.com, riggingwarehouse.com,
+     hhilifting.com, hanessupply.com). Ratings shown in the catalog's
+     native metric tons with the lb equivalent alongside, e.g. "2 t
+     (4,400 lb)".
+   - **Tie-downs** — all 5 items carry sourced `cap` data. 3 of 5 matched
+     Durabilt's published 2019 catalog (jordanwirerope.com mirror) and
+     current product pages (durabiltusa.com) by exact or near-exact
+     catalog number. The other 2 (`RS-4-30-6-FH7`, `RS430LWH7`) do NOT
+     appear verbatim in any source found — extensive searching turned up
+     no Durabilt SKU with a matching handle-size segment. These were
+     matched to the closest published Durabilt SKU (`RS-4-30-L-FH7` /
+     `RS-4-30-L-WH7`, the only 4"x30' flat-hook and wire-hook straps
+     Durabilt publishes) on width/length/hook-type, and the `src` string
+     says explicitly that this is an inferred match, not a verbatim
+     confirmation — treat these two ratings with more caution than the
+     rest.
+   - **Wire rope clips and Wedge sockets were investigated and
+     deliberately excluded from this pattern** — they don't have a
+     standalone WLL the way the categories above do. Crosby's own Wire
+     Rope End Termination User's Manual states a wedge socket's rated
+     load is a function of the wire rope's own breaking strength times an
+     80% connection-efficiency factor, not a fixed number per socket part
+     number; Crosby's Clips Warnings literature gives wire rope clips the
+     same treatment (80%/90% efficiency depending on clip size, applied
+     to whatever rope is used, plus a "number of clips"/torque table by
+     rope size — not a WLL by clip part number). Putting a single `cap`
+     value on these part numbers would misrepresent how their capacity
+     actually works, since it depends on a rope spec this catalog doesn't
+     capture. Do not add `cap` to these two categories without first
+     changing the data model to also record the paired rope size.
+   - Everything else (chain, turnbuckles...) still shows no capacity.
    **This is still draft/unreviewed** — see Safety-critical content below
    before treating any of it as final. Ryan said he'd work on the rest.
 3. **98 of 498 items have no vendor part number** — concentrated in import
@@ -213,6 +260,44 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
   primary-source manufacturer document (a manual, catalog PDF, or the
   manufacturer's own product/spec page) matched by exact vendor part
   number.
+- The same methodology was applied to Master links: all 20 items now carry
+  sourced `cap` data. 9 Crosby A-342 alloy master links and 5 Crosby A-345
+  master link assemblies were confirmed against the Crosby Group's own
+  official catalog PDFs, pages 134 and 135 respectively
+  (thecrosbygroup.com), fetched with `curl` and parsed with
+  `pdftotext -layout` after the crawler tool failed on the PDF URL directly.
+  6 CARTEC clevis master link sets were confirmed against the CDFXA WLL
+  table published by All Material Handling, the CDFXA importer/distributor
+  (allmaterialhandling.com), cross-checked against Holloway Houston
+  Interests' per-part listings (hhilifting.com). All matched by exact stock
+  number; no blanks.
+- The same methodology was applied to Snatch blocks: all 12 items now carry
+  sourced `cap` data, pulled from three official Crosby/McKissick catalog
+  page variants on kitocrosby.com (hook-fitting and shackle-fitting single
+  sheave 2-12t, plus hook-fitting single sheave 15-30t for the one 15-ton
+  item), matched by exact stock number and cross-checked against
+  independent retailer WLL listings. No blanks.
+- The same methodology was applied to Tie-downs, with a caveat: 3 of 5
+  items matched Durabilt's published 2019 catalog and current product
+  pages by exact or near-exact catalog number. The remaining 2
+  (`RS-4-30-6-FH7`, `RS430LWH7`) could not be found verbatim anywhere after
+  extensive searching (Durabilt's own site, the 2019 catalog PDF, and
+  several independent retailers) — they were matched to the closest
+  published Durabilt SKU on width/length/hook-type, and the UI citation
+  says explicitly that this is an inferred match, not a verbatim
+  confirmation. Treat those two ratings as lower-confidence than every
+  other sourced `cap` value on the site, and revisit if Ryan can confirm
+  the exact catalog number against the physical strap's label.
+- **Wire rope clips and Wedge sockets were researched and deliberately
+  excluded** from the `cap` pattern — not a sourcing gap, an architectural
+  mismatch. Both Crosby's Wire Rope End Termination User's Manual and its
+  Clips Warnings literature define these fittings' "rated load" as an
+  efficiency percentage (80% for wedge sockets; 80–90% for wire rope clips
+  depending on size) applied to the *wire rope's own* breaking strength —
+  there is no fixed WLL number per fitting part number independent of what
+  rope it's paired with. A single `cap:{rating,src}` value would
+  misrepresent this. If this gets revisited, it needs a rope-size input,
+  not just a part-number lookup.
 
 ## Commercial decisions already made
 
@@ -307,7 +392,20 @@ wiring the two endpoints so the thing actually notifies someone.
   `NOTES['Hoists|<group>']` entries (CM, Harrington, Tiger, Black Bear) with
   the same citation-and-disclaimer pattern used for Shackles/Hooks.
   Deliberately did NOT add photos or fabricate ratings for anything else in
-  this pass; photos remain out of scope per the sourcing rule above, and
-  everything outside Shackles/Hooks/Hoists (chain, master links, snatch
-  blocks, wedge sockets, turnbuckles, wire rope clips...) still shows no
-  capacity.
+  that pass; photos remain out of scope per the sourcing rule above.
+- Extended the same sourced-`cap` methodology to Master links (all 20
+  items, Crosby A-342/A-345 catalog PDFs + CARTEC CDFXA WLL tables),
+  Snatch blocks (all 12 items, Crosby/McKissick catalog pages), and
+  Tie-downs (all 5 items, Durabilt catalog/product pages -- 2 of the 5 via
+  an explicitly-flagged inferred part-number match rather than a verbatim
+  one). See "Known data gaps" #2 and "Safety-critical content" above for
+  full citations. Upgraded `NOTES['Master links']` and
+  `NOTES['Snatch blocks']` from info to warn level, and added the same
+  sourced-capacity disclaimer text to `NOTES['Tie-downs']`. Also
+  researched Wire rope clips and Wedge sockets and deliberately did NOT
+  add `cap` data to either -- both express capacity as an efficiency
+  percentage of the wire rope's own breaking strength rather than a fixed
+  WLL per part number, so the single-value `cap` pattern doesn't fit them
+  without also capturing a rope spec. Everything outside
+  Shackles/Hooks/Hoists/Master links/Snatch blocks/Tie-downs (chain,
+  turnbuckles, wire rope clips, wedge sockets...) still shows no capacity.

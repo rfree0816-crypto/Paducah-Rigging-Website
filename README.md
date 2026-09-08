@@ -100,7 +100,7 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
 - **Product data needs verification.** Item weights are placeholder estimates by
   category and drive the freight calculation. Load limits, capacity ratings, and
   the safety disclaimer copy are draft and must be confirmed against manufacturer
-  literature before this is customer-facing. Three categories are a partial
+  literature before this is customer-facing. Six categories are a partial
   exception, sourced by exact vendor part number with the citation shown in the
   product panel:
   - The 32 "Domestic" shackles carry a rated-capacity figure pulled from
@@ -113,6 +113,15 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
     catalog PDFs, and spec pages (CM Series 653-A and 622A manuals; Harrington's
     Manual Hoists brochure and L5LB Owner's Manual; Tiger Lifting's Industrial
     Range technical sheet; Black Bear's YL/YSF Series spec pages).
+  - All 20 Master links carry a rated-capacity figure pulled from Crosby's
+    A-342/A-345 official catalog PDFs and CARTEC's published CDFXA WLL tables.
+  - All 12 Snatch blocks carry a rated-capacity figure (shown in metric tons
+    with the lb equivalent) pulled from official Crosby/McKissick catalog pages.
+  - All 5 Tie-downs carry a rated-capacity figure pulled from Durabilt's
+    published catalog and product pages; 2 of the 5 (`RS-4-30-6-FH7`,
+    `RS430LWH7`) couldn't be matched verbatim to a Durabilt catalog number
+    despite extensive searching, so they're matched to the closest published
+    SKU and flagged in the UI citation as an inferred match, not a confirmed one.
 
   Every one of these is still an unreviewed draft figure, not a substitute for
   the marking stamped on the physical part. No other category has real
@@ -121,8 +130,15 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
   number to trace back to literature), all 30 Hooks "Latch kits" (a latch
   kit's rating comes from the hook it's installed on, not its own literature),
   and 3 Hooks items where either no part number exists or no source publishes
-  a WLL figure despite a real part number. Hoists had no such gap — every one
-  of the 65 items has a real vendor part number, so all 65 are sourced.
+  a WLL figure despite a real part number. Hoists, Master links, Snatch blocks,
+  and Tie-downs had no such part-number gap — every item in those four
+  categories has a real vendor part number, so all of them are sourced.
+  Wire rope clips and Wedge sockets were investigated and deliberately
+  excluded from this pattern: manufacturer literature (Crosby's Wire Rope
+  End Termination manual and Clips Warnings PDF) defines their capacity as
+  an efficiency percentage of the wire rope's own breaking strength, not a
+  fixed WLL per fitting part number, so a single-value rating would
+  misrepresent how they actually work.
 - **No product photos.** `photoHTML()` falls back to built-in SVG line art for
   every item. Real photos need to come from the Crosby/CM/Harrington/Peerless
   dealer media libraries or from shooting the actual stock — generic/stock/

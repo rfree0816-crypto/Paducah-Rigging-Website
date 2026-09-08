@@ -87,7 +87,7 @@ Rules applied when generating `ITEMS`:
    single most valuable thing to fix.
 2. **Load limits are mostly missing.** Nylon slings have real ratings
    (vertical/choker/basket, from a chart Ryan supplied). The sourced-`cap`
-   pilot that started with Shackles has now been extended to Hooks:
+   pilot that started with Shackles has now been extended to Hooks and Hoists:
    - **Shackles** — all 32 "Domestic" shackles carry a `cap: {rating, src}`
      field, a single WLL figure pulled from Crosby's official G-209/G-2130
      catalog PDF and CM's Long Reach brochure, matched by exact vendor part
@@ -107,8 +107,31 @@ Rules applied when generating `ITEMS`:
      "roll off box hook", which has a real, traceable part number
      `5121573` but no retailer or manufacturer source publishes an actual
      WLL figure for it).
-   - Everything else (hoists, chain, master links, snatch blocks, wedge
-     sockets, turnbuckles, wire rope clips...) still shows no capacity.
+   - **Hoists** — all 65 items carry sourced `cap` data (every Hoists SKU
+     has a real vendor part number, unlike some Hooks items, so there were
+     no blanks to leave). 15 CM items: 12 confirmed against the official CM
+     Series 653-A Lever Hoist manual PDF (cmhoist.com) plus the official
+     CM Series 622A Hand Chain Hoist manual PDF (tamu.edu mirror of the
+     CMCO document), the remaining 3 (0214/0216 mini lever hoists)
+     corroborated via cmco.com/cmhoist.com product pages and independent
+     distributor listings quoting the same CM catalog figures. 20 Harrington
+     items: CF hand chain hoists and LX mini lever hoists confirmed against
+     the official "Harrington Manual Hoists" brochure PDF (harringtonhoists.com,
+     mirrored at tool-smith.com); L5LB lever hoists confirmed against
+     Harrington's L5LB Owner's Manual and LB Lever Hoist spec page
+     (harringtonhoists.com), cross-checked against independent dealer
+     listings (Western Equipment, PicClick/eBay) for the part-number-to-
+     capacity mapping. 28 Tiger items: confirmed against Tiger Lifting's own
+     "Technical Sheet — Industrial Range" PDF (tigerlifting.com) for the
+     TRL/TRC capacity-by-tonnage tables, with TR7LH/TR7CB/PROCB part-number
+     naming cross-checked against Tiger's authorized USA dealer (liftgear.com)
+     per-SKU model-lineup tables. 2 Black Bear items: confirmed against
+     Black Bear Hoist's own YL Series and YSF Series spec pages
+     (blackbearhoists.com). Added/updated 4 `NOTES['Hoists|<group>']`
+     entries (CM, Harrington, Tiger, Black Bear) with the same
+     citation-and-disclaimer pattern used for Shackles/Hooks.
+   - Everything else (chain, master links, snatch blocks, wedge sockets,
+     turnbuckles, wire rope clips...) still shows no capacity.
    **This is still draft/unreviewed** — see Safety-critical content below
    before treating any of it as final. Ryan said he'd work on the rest.
 3. **98 of 498 items have no vendor part number** — concentrated in import
@@ -166,6 +189,30 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
   no-part-number Misc hooks items, or the Latch kits, without either a real
   vendor part number to trace back to literature or (for Latch kits) a
   reason to revisit the inherited-rating architecture.
+- The same methodology was applied to Hoists: all 65 items now carry sourced
+  `cap` data. Primary sources used, by brand: CM — the official CM Series
+  653-A Lever Hoist manual PDF (cmhoist.com) and CM Series 622A Hand Chain
+  Hoist manual PDF (a CMCO document, mirrored at instrumentation.tamu.edu),
+  both parsed with `pdftotext -layout` to extract the SKU-to-capacity spec
+  tables directly, plus cmco.com/cmhoist.com product pages for the 2 mini
+  lever hoist SKUs (0214/0216) not covered by either manual. Harrington —
+  the official "Harrington Manual Hoists" brochure PDF (harringtonhoists.com,
+  mirrored at tool-smith.com) for CF/LX series, and Harrington's own L5LB
+  Owner's Manual plus LB Lever Hoist spec page (harringtonhoists.com) for
+  the L5LB series, cross-checked against independent dealer listings
+  (Western Equipment, PicClick/eBay) confirming part-number-to-capacity.
+  Tiger Lifting — Tiger's own "Technical Sheet — Industrial Range" PDF
+  (tigerlifting.com), which gives capacity-by-tonnage for the TRL/TRC
+  families directly, cross-checked against Tiger's authorized USA dealer
+  (liftgear.com) for exact TR7LH/TR7CB/PROCB part-number-to-capacity model
+  lineups. Black Bear — the manufacturer's own YL Series and YSF Series
+  spec pages (blackbearhoists.com). Unlike Hooks, every one of the 65
+  Hoists items has a real, traceable vendor part number, so there was no
+  "leave it blank" decision to make for this category — all 65 are sourced.
+  Do not extend this pattern to any other category without an equivalent
+  primary-source manufacturer document (a manual, catalog PDF, or the
+  manufacturer's own product/spec page) matched by exact vendor part
+  number.
 
 ## Commercial decisions already made
 
@@ -250,7 +297,17 @@ wiring the two endpoints so the thing actually notifies someone.
   (see "Known data gaps" #2 and "Safety-critical content" above for exactly
   which items and why 3 items with real part numbers were left blank).
   Added/updated 5 `NOTES['Hooks|<group>']` entries with the same
-  citation-and-disclaimer pattern used for Shackles. Deliberately did NOT
-  add photos or fabricate ratings for anything else in this pass (Hoists is
-  next, per Ryan); both remain open per the sourcing and safety rules in
-  this file.
+  citation-and-disclaimer pattern used for Shackles.
+- Extended the same sourced-`cap` methodology to Hoists: all 65 items now
+  cite official CM/Harrington/Tiger Lifting/Black Bear manuals, catalog PDFs,
+  and manufacturer spec pages (see "Known data gaps" #2 and "Safety-critical
+  content" above for exactly which document was used per brand). Unlike
+  Hooks, every Hoists SKU has a real vendor part number, so all 65 were
+  sourced — none were left blank. Added/updated 4
+  `NOTES['Hoists|<group>']` entries (CM, Harrington, Tiger, Black Bear) with
+  the same citation-and-disclaimer pattern used for Shackles/Hooks.
+  Deliberately did NOT add photos or fabricate ratings for anything else in
+  this pass; photos remain out of scope per the sourcing rule above, and
+  everything outside Shackles/Hooks/Hoists (chain, master links, snatch
+  blocks, wedge sockets, turnbuckles, wire rope clips...) still shows no
+  capacity.

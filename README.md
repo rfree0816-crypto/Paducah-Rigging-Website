@@ -100,7 +100,7 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
 - **Product data needs verification.** Item weights are placeholder estimates by
   category and drive the freight calculation. Load limits, capacity ratings, and
   the safety disclaimer copy are draft and must be confirmed against manufacturer
-  literature before this is customer-facing. Six categories are a partial
+  literature before this is customer-facing. Seven categories are a partial
   exception, sourced by exact vendor part number with the citation shown in the
   product panel:
   - The 32 "Domestic" shackles carry a rated-capacity figure pulled from
@@ -122,16 +122,20 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
     `RS430LWH7`) couldn't be matched verbatim to a Durabilt catalog number
     despite extensive searching, so they're matched to the closest published
     SKU and flagged in the UI citation as an inferred match, not a confirmed one.
+  - 6 of 7 Binders carry a rated-capacity figure pulled from Columbus
+    McKinnon's and Durabilt's official product pages; the 7th (a "1/4\"
+    LEVER BINDER" with no vendor part number) is left blank.
 
   Every one of these is still an unreviewed draft figure, not a substitute for
   the marking stamped on the physical part. No other category has real
-  capacity data yet, and within Shackles/Hooks some items were deliberately
-  left blank rather than guessed — the 29 "Import" shackles (no vendor part
-  number to trace back to literature), all 30 Hooks "Latch kits" (a latch
-  kit's rating comes from the hook it's installed on, not its own literature),
-  and 3 Hooks items where either no part number exists or no source publishes
-  a WLL figure despite a real part number. Hoists, Master links, Snatch blocks,
-  and Tie-downs had no such part-number gap — every item in those four
+  capacity data yet, and within Shackles/Hooks/Binders some items were
+  deliberately left blank rather than guessed — the 29 "Import" shackles (no
+  vendor part number to trace back to literature), all 30 Hooks "Latch kits"
+  (a latch kit's rating comes from the hook it's installed on, not its own
+  literature), 3 Hooks items where either no part number exists or no source
+  publishes a WLL figure despite a real part number, and 1 Binders item with
+  no vendor part number at all. Hoists, Master links, Snatch blocks, and
+  Tie-downs had no such part-number gap — every item in those four
   categories has a real vendor part number, so all of them are sourced.
   Wire rope clips and Wedge sockets were investigated and deliberately
   excluded from this pattern: manufacturer literature (Crosby's Wire Rope

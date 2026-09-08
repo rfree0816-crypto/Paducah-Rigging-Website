@@ -178,6 +178,19 @@ Rules applied when generating `ITEMS`:
      actually works, since it depends on a rope spec this catalog doesn't
      capture. Do not add `cap` to these two categories without first
      changing the data model to also record the paired rope size.
+   - **Binders** — 6 of 7 items carry sourced `cap` data. 3 CM items
+     (48305 lever binder, 48810 and 48366 ratchet binders) confirmed
+     against Columbus McKinnon's official product pages (cmco.com), which
+     give a WLL range per binder type rather than a per-part table — the
+     exact figure per part number was cross-checked against multiple
+     independent distributor listings (tsriggingequipment.com,
+     dkhardware.com, homelectrical.com, mscdirect.com, truckpro.com,
+     fleetpride.com) that all agree. 3 Durabilt DTT items (DTT-1, DTT-2,
+     DTT-3) confirmed against Durabilt's own per-part spec pages
+     (durabiltusa.com), which do give an exact Work Load Limit per
+     product number. The 7th item, a "1/4\" LEVER BINDER" with no vendor
+     part number at all, was deliberately left blank — same rule as
+     unnumbered items in every other category.
    - Everything else (chain, turnbuckles...) still shows no capacity.
    **This is still draft/unreviewed** — see Safety-critical content below
    before treating any of it as final. Ryan said he'd work on the rest.
@@ -298,6 +311,18 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
   rope it's paired with. A single `cap:{rating,src}` value would
   misrepresent this. If this gets revisited, it needs a rope-size input,
   not just a part-number lookup.
+- The same methodology was applied to Binders: 6 of 7 items now carry
+  sourced `cap` data. 3 CM items (48305, 48810, 48366) confirmed against
+  Columbus McKinnon's official product pages (cmco.com), which publish a
+  WLL range per binder family rather than a per-part table — the exact
+  figure for each part number was cross-checked against six independent
+  distributor listings that all agree on the same number. 3 Durabilt DTT
+  items (DTT-1/2/3) confirmed against Durabilt's own per-part spec pages
+  (durabiltusa.com), which do give an exact Work Load Limit per product
+  number, cross-checked against independent retailer listings. The 7th
+  item, "1/4\" LEVER BINDER", has no vendor part number and was left
+  blank, consistent with every other category's rule for unnumbered
+  items.
 
 ## Commercial decisions already made
 
@@ -406,6 +431,13 @@ wiring the two endpoints so the thing actually notifies someone.
   add `cap` data to either -- both express capacity as an efficiency
   percentage of the wire rope's own breaking strength rather than a fixed
   WLL per part number, so the single-value `cap` pattern doesn't fit them
-  without also capturing a rope spec. Everything outside
-  Shackles/Hooks/Hoists/Master links/Snatch blocks/Tie-downs (chain,
-  turnbuckles, wire rope clips, wedge sockets...) still shows no capacity.
+  without also capturing a rope spec.
+- Extended the same sourced-`cap` methodology to Binders: 6 of 7 items now
+  cite official Columbus McKinnon (cmco.com) and Durabilt (durabiltusa.com)
+  product literature, cross-checked against independent distributor
+  listings (see "Known data gaps" #2 and "Safety-critical content" above).
+  Upgraded `NOTES['Binders']` with the same sourced-capacity disclaimer
+  language. The 1 unnumbered item ("1/4\" LEVER BINDER") was left blank.
+  Everything outside Shackles/Hooks/Hoists/Master links/Snatch
+  blocks/Tie-downs/Binders (chain, turnbuckles, wire rope clips, wedge
+  sockets, poly round slings...) still shows no capacity.

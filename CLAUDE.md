@@ -164,6 +164,29 @@ Rules applied when generating `ITEMS`:
      says explicitly that this is an inferred match, not a verbatim
      confirmation — treat these two ratings with more caution than the
      rest.
+   - **Poly round slings** — 16 of 37 items carry sourced vertical/choker/
+     basket `wll` data (plus a `wllSrc` citation, same pattern as the
+     existing Nylon slings `wll` field). The catalog's own part numbers use
+     two industry-standard color-code families: "SWG###" codes, confirmed
+     against Industrial Wire Rope & Supply's published chart
+     (industrialrope.com) and independently cross-checked against Southwest
+     Wire Rope's chart (southwestwirerope.com) and LGH Rigging Rental's
+     EN/A-code table (rentlgh.com) — all agree, including the fact that
+     SWG180 = Orange (this matters: a different manufacturer's *own*
+     internal EN-code chart assigns White to that number, but that chart
+     doesn't match this catalog's color names, so it was not used); and
+     "A###" codes, confirmed against Arabi Sling's official catalog
+     (arabisling.com), also cross-checked against the LGH table. One item,
+     `A24X20` ("20' BLUE POLY ROUND SLING"), has a part number that doesn't
+     match any published code (24 isn't in either chart) — every other
+     Blue item in this catalog uses code 240, and 240 is the only code that
+     maps to Blue, so this was treated as a data-entry typo (missing
+     trailing zero) and given the A240/Blue rating, with the `wllSrc` text
+     explicitly flagging this as a typo call rather than a verbatim part
+     match — treat this one rating with more caution than the rest, and
+     flag it to Ryan for correction against the physical tag. The remaining
+     21 of 37 items have no vendor part number at all (color/length only)
+     and were left blank per the standard rule.
    - **Wire rope clips and Wedge sockets were investigated and
      deliberately excluded from this pattern** — they don't have a
      standalone WLL the way the categories above do. Crosby's own Wire
@@ -323,6 +346,17 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
   item, "1/4\" LEVER BINDER", has no vendor part number and was left
   blank, consistent with every other category's rule for unnumbered
   items.
+- Poly round slings got the same treatment via `wll`/`wllSrc` (the same
+  shape already used for Nylon slings) rather than `cap`, since round
+  slings rate by vertical/choker/basket like webbing slings do: 16 of 37
+  items matched a published SWG- or A-code color/capacity chart
+  (industrialrope.com, southwestwirerope.com, arabisling.com, rentlgh.com
+  — all cross-checked and in agreement, including SWG180 = Orange, which
+  matches this catalog's own color name even though it's not what every
+  manufacturer's internal chart says). One item (`A24X20`) had a
+  non-matching code treated as a probable typo for `A240` and flagged as
+  such in its `wllSrc` citation — see "Known data gaps" #2 above. The
+  other 21 of 37 items have no part number and were left blank.
 
 ## Commercial decisions already made
 
@@ -438,6 +472,15 @@ wiring the two endpoints so the thing actually notifies someone.
   listings (see "Known data gaps" #2 and "Safety-critical content" above).
   Upgraded `NOTES['Binders']` with the same sourced-capacity disclaimer
   language. The 1 unnumbered item ("1/4\" LEVER BINDER") was left blank.
-  Everything outside Shackles/Hooks/Hoists/Master links/Snatch
-  blocks/Tie-downs/Binders (chain, turnbuckles, wire rope clips, wedge
-  sockets, poly round slings...) still shows no capacity.
+- Extended the pattern to Poly round slings using `wll`/`wllSrc` (the
+  vertical/choker/basket shape, matching Nylon slings) instead of `cap`:
+  16 of 37 items now cite published SWG/A-code round-sling charts
+  (industrialrope.com, southwestwirerope.com, arabisling.com, rentlgh.com).
+  One item (`A24X20`) is flagged in its own citation as a likely
+  data-entry typo. Upgraded `NOTES['Poly round slings']` from info to warn
+  level with the same sourced-capacity disclaimer pattern. The remaining
+  21 unnumbered items were left blank. Also added generic rendering
+  support for the new `wllSrc` citation field (mirrors the existing `cap`
+  citation paragraph). Everything outside Shackles/Hooks/Hoists/Master
+  links/Snatch blocks/Tie-downs/Binders/Poly round slings (chain,
+  turnbuckles, wire rope clips, wedge sockets...) still shows no capacity.

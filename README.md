@@ -100,7 +100,7 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
 - **Product data needs verification.** Item weights are placeholder estimates by
   category and drive the freight calculation. Load limits, capacity ratings, and
   the safety disclaimer copy are draft and must be confirmed against manufacturer
-  literature before this is customer-facing. Seven categories are a partial
+  literature before this is customer-facing. Eight categories are a partial
   exception, sourced by exact vendor part number with the citation shown in the
   product panel:
   - The 32 "Domestic" shackles carry a rated-capacity figure pulled from
@@ -125,6 +125,11 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
   - 6 of 7 Binders carry a rated-capacity figure pulled from Columbus
     McKinnon's and Durabilt's official product pages; the 7th (a "1/4\"
     LEVER BINDER" with no vendor part number) is left blank.
+  - 16 of 37 Poly round slings carry vertical/choker/basket figures pulled
+    from published SWG/A-code round-sling capacity charts (matched by
+    exact part-number code and color); the other 21 have no vendor part
+    number and are left blank. One matched item's part number look like a
+    likely data-entry typo and is flagged as such in its citation.
 
   Every one of these is still an unreviewed draft figure, not a substitute for
   the marking stamped on the physical part. No other category has real
@@ -133,10 +138,12 @@ Branch: **main**, folder: **/ (root)**. Save. The site publishes at
   vendor part number to trace back to literature), all 30 Hooks "Latch kits"
   (a latch kit's rating comes from the hook it's installed on, not its own
   literature), 3 Hooks items where either no part number exists or no source
-  publishes a WLL figure despite a real part number, and 1 Binders item with
-  no vendor part number at all. Hoists, Master links, Snatch blocks, and
-  Tie-downs had no such part-number gap — every item in those four
-  categories has a real vendor part number, so all of them are sourced.
+  publishes a WLL figure despite a real part number, 1 Binders item with
+  no vendor part number at all, and 21 Poly round slings items with no
+  vendor part number at all (color/length only). Hoists, Master links,
+  Snatch blocks, and Tie-downs had no such part-number gap — every item in
+  those four categories has a real vendor part number, so all of them are
+  sourced.
   Wire rope clips and Wedge sockets were investigated and deliberately
   excluded from this pattern: manufacturer literature (Crosby's Wire Rope
   End Termination manual and Clips Warnings PDF) defines their capacity as

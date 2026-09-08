@@ -86,18 +86,31 @@ Rules applied when generating `ITEMS`:
    shipping calculator is decorative until real weights exist. This is the
    single most valuable thing to fix.
 2. **Load limits are mostly missing.** Nylon slings have real ratings
-   (vertical/choker/basket, from a chart Ryan supplied). As a scoped pilot, the
-   32 "Domestic" shackles now carry a `cap: {rating, src}` field — a single WLL
-   figure pulled from Crosby's official G-209/G-2130 catalog PDF and CM's Long
-   Reach brochure, matched by the exact vendor part number already in `ITEMS`,
-   with the source cited inline in the UI (see `selectorHTML()`). The 29
-   "Import" shackles have NO vendor part number in the data at all, so they were
-   deliberately left blank rather than guessed — there's no way to trace an
-   unnumbered import part to real literature. Everything outside Shackles
-   (hooks, hoists, chain, master links, snatch blocks, wedge sockets,
-   turnbuckles, wire rope clips...) still shows no capacity. **This is still
-   draft/unreviewed** — see Safety-critical content below before treating any
-   of it as final. Ryan said he'd work on the rest.
+   (vertical/choker/basket, from a chart Ryan supplied). The sourced-`cap`
+   pilot that started with Shackles has now been extended to Hooks:
+   - **Shackles** — all 32 "Domestic" shackles carry a `cap: {rating, src}`
+     field, a single WLL figure pulled from Crosby's official G-209/G-2130
+     catalog PDF and CM's Long Reach brochure, matched by exact vendor part
+     number. The 29 "Import" shackles have NO vendor part number at all, so
+     they were deliberately left blank.
+   - **Hooks** — 36 of 74 items now carry sourced `cap` data: 18 Eye hooks
+     (Crosby L-320/A-350 series, one Green Pin P-6731 sorting hook, one
+     Campbell/Apex #31, and the Crosby S-377 barrel hooks), 8 Swivel hooks
+     (Crosby L-322 series), and 10 of 11 Shur-Loc hooks (Crosby
+     S-1316/S-1317/S-1326 series), each matched by exact vendor part number
+     and cited inline in the UI. Deliberately left blank: all 30 "Latch
+     kits" (a latch kit's rating is tied to the hook it's installed on, not
+     independent — see `NOTES['Hooks|Latch kits']`), 1 Shur-Loc item
+     (`PH-00492`, part `1004314`, "1/4" swivel Shur-Loc" — no source
+     anywhere confirms this as a genuine Crosby stock number), and 3 "Misc
+     hooks" items (2 with no vendor part number at all, plus `PH-00369`
+     "roll off box hook", which has a real, traceable part number
+     `5121573` but no retailer or manufacturer source publishes an actual
+     WLL figure for it).
+   - Everything else (hoists, chain, master links, snatch blocks, wedge
+     sockets, turnbuckles, wire rope clips...) still shows no capacity.
+   **This is still draft/unreviewed** — see Safety-critical content below
+   before treating any of it as final. Ryan said he'd work on the rest.
 3. **98 of 498 items have no vendor part number** — concentrated in import
    shackles (29), poly round slings (21), rope (20), clips (13). The Part #
    field is hidden entirely for those items, per Ryan's instruction.
@@ -135,9 +148,24 @@ This site sells load-rated equipment. Wrong numbers here can hurt someone.
   against a second independent retailer citation per size before entry. Full
   citation is shown in the UI next to the rating. This is a published-spec
   lookup, not an engineering judgment call — but it is still unreviewed by
-  Ryan or a safety professional, and the UI says so. Do not extend this
-  pattern to other categories or to the 29 unnumbered Import shackles without
-  a real vendor part number to trace back to literature.
+  Ryan or a safety professional, and the UI says so.
+- The same methodology was applied to Hooks: 36 of 74 items now carry sourced
+  `cap` data from official Crosby/CMCO catalog pages (kitocrosby.com), a
+  Crosby PDF catalog (iandisling.com), a Crosby spec-sheet PDF mirrored at
+  boiserigging.com, Green Pin's own product page (greenpin.com), and a
+  Campbell/Apex distributor listing that echoes the manufacturer's catalog
+  description (aronson-campbell.com). Two items with real, traceable part
+  numbers were deliberately left blank rather than guessed: `PH-00492`
+  (part `1004314`) because no source anywhere confirms it as a genuine
+  Crosby stock number, and `PH-00369` (part `5121573`, roll-off box hook)
+  because the part number is confirmed real but no source publishes a WLL
+  figure for it. All 30 Latch kits were intentionally excluded on
+  architectural grounds, not a sourcing gap — a latch kit's rating is
+  inherited from the hook it's installed on. Do not extend this pattern to
+  other categories, or to the 29 unnumbered Import shackles, the 3
+  no-part-number Misc hooks items, or the Latch kits, without either a real
+  vendor part number to trace back to literature or (for Latch kits) a
+  reason to revisit the inherited-rating architecture.
 
 ## Commercial decisions already made
 
@@ -216,6 +244,13 @@ wiring the two endpoints so the thing actually notifies someone.
 - Added `tests/e2e.spec.js` + `npm test` — see Testing section above.
 - Added sourced `cap` (rated capacity) data to the 32 Domestic shackle items,
   pulled from Crosby/CM published catalog literature and cited in the UI —
-  see "Known data gaps" #2 above. Deliberately did NOT add photos or fabricate
-  ratings for anything else in this pass; both remain open per the sourcing
-  and safety rules in this file.
+  see "Known data gaps" #2 above.
+- Extended the same sourced-`cap` methodology to Hooks: 36 of 74 items now
+  cite official Crosby/CMCO, Green Pin, and Campbell/Apex catalog literature
+  (see "Known data gaps" #2 and "Safety-critical content" above for exactly
+  which items and why 3 items with real part numbers were left blank).
+  Added/updated 5 `NOTES['Hooks|<group>']` entries with the same
+  citation-and-disclaimer pattern used for Shackles. Deliberately did NOT
+  add photos or fabricate ratings for anything else in this pass (Hoists is
+  next, per Ryan); both remain open per the sourcing and safety rules in
+  this file.

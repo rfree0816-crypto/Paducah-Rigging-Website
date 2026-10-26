@@ -974,7 +974,7 @@ document.getElementById('pubSignIn2').onclick = showLogin;
 /* ---------- account request ----------
    Same deal as ORDER_ENDPOINT: empty means nothing is transmitted. Paste a Formspree
    (or Web3Forms / Zapier) URL and each request is POSTed as JSON and emailed to you. */
-const ACCOUNT_ENDPOINT = '';
+const ACCOUNT_ENDPOINT = 'https://formspree.io/f/xeaaalbb';
 
 function showRequest(){
   document.getElementById('publicPage').classList.add('hidden');
@@ -1007,6 +1007,8 @@ function submitRequest(){
   }
   err.classList.add('hidden');
   const payload = {
+    // Formspree uses "_subject" to set the email subject line it sends you.
+    _subject: `New account request — ${val('q_company')}`,
     submitted: new Date().toISOString(),
     company: val('q_company'), dba: val('q_dba'), work_type: val('q_type'),
     contact: val('q_name'), title: val('q_title'), email: val('q_email'), phone: val('q_phone'),
@@ -1015,19 +1017,47 @@ function submitRequest(){
     tax_exempt: val('q_exempt'), exemption_cert: val('q_cert'),
     buys_most: val('q_lines'), notes: val('q_notes'), card_terms_accepted: true
   };
-  if(ACCOUNT_ENDPOINT){
-    fetch(ACCOUNT_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'},
-                             body: JSON.stringify(payload)})
-      .then(r => { if(!r.ok) console.warn('Account request rejected:', r.status); })
-      .catch(e => console.warn('Account request failed:', e));
-  } else {
+
+  if(!ACCOUNT_ENDPOINT){
     console.info('ACCOUNT_ENDPOINT is empty — nothing was transmitted. Payload:', payload);
+    document.getElementById('reqEcho').textContent = 'Prototype — not transmitted. Captured for ' + payload.company + '.';
+    document.getElementById('reqForm').classList.add('hidden');
+    document.getElementById('reqDone').classList.remove('hidden');
+    window.scrollTo(0,0);
+    return;
   }
-  document.getElementById('reqEcho').textContent =
-    (ACCOUNT_ENDPOINT ? 'Sent for ' : 'Prototype — not transmitted. Captured for ') + payload.company + '.';
-  document.getElementById('reqForm').classList.add('hidden');
-  document.getElementById('reqDone').classList.remove('hidden');
-  window.scrollTo(0,0);
+
+  const submitBtn = document.getElementById('reqSubmit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  fetch(ACCOUNT_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(r => {
+      if(r.ok){
+        document.getElementById('reqEcho').textContent = 'Sent for ' + payload.company + '. We\'ll be in touch shortly.';
+        document.getElementById('reqForm').classList.add('hidden');
+        document.getElementById('reqDone').classList.remove('hidden');
+        window.scrollTo(0,0);
+      } else {
+        return r.json().then(data => {
+          const msg = (data && data.errors && data.errors.map(e => e.message).join(', ')) || 'Something went wrong submitting your request.';
+          throw new Error(msg);
+        });
+      }
+    })
+    .catch(e => {
+      console.warn('Account request failed:', e);
+      err.textContent = 'Could not send your request (' + e.message + '). Please try again, or call us directly.';
+      err.classList.remove('hidden');
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit request';
+    });
 }
 
 document.getElementById('pubRequest').onclick = showRequest;

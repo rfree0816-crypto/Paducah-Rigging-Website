@@ -36,6 +36,14 @@ async function main() {
   page.on('pageerror', e => pageErrors.push(e.message));
   page.on('console', m => { if (m.type() === 'error' && !/404/.test(m.text())) pageErrors.push(m.text()); });
 
+  // Intercept the real Formspree endpoint so the test suite never burns a real
+  // submission from the account's free-tier quota and never depends on network
+  // latency/availability. Any POST to formspree.io is answered locally with the
+  // same 200 JSON shape Formspree returns on success.
+  await page.route('https://formspree.io/**', route => {
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true }) });
+  });
+
   await page.goto(BASE);
   await page.waitForTimeout(200);
 
@@ -138,7 +146,7 @@ async function main() {
   await page.fill('#q_ship1', '123 Main St');
   await page.check('#q_terms');
   await page.click('#reqSubmit');
-  await page.waitForTimeout(100);
+  await page.waitForSelector('#reqDone:not(.hidden)', { timeout: 3000 }).catch(() => {});
   const submitted = await page.$eval('#reqDone', el => !el.classList.contains('hidden'));
   ok(submitted, 'account request should succeed once required fields + terms are filled');
   await page.click('#reqDoneBack');

@@ -5,21 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PHATRIGGING — Client Order Portal</title>
 <meta name="description" content="Phatrigging client order portal — rigging hardware, slings, chain, and hoists. Browse the catalog, sign in for contract pricing.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%2314181C'/%3E%3Cpath d='M30 46a20 20 0 0 1 40 0' stroke='%23F2C300' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 46v10M70 46v10' stroke='%23F2C300' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 58h56' stroke='%23F2C300' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230C1C2E'/%3E%3Cpath d='M30 46a20 20 0 0 1 40 0' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 46v10M70 46v10' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 58h56' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14181C;
-  --steel:#3A424B;
-  --galv:#C9CFD6;
-  --plate:#EDEFF2;
-  --paper:#FAFBFC;
-  --safety:#F2C300;
-  --oxide:#B33A1A;
-  --line:#D3D8DE;
-  --ok:#1F6F4A;
+  /* Anchor Navy theme */
+  --ink:#0C1C2E;
+  --steel:#3E5872;
+  --galv:#C1D0DE;
+  --plate:#E9EFF4;
+  --paper:#F7F9FB;
+  --safety:#2563A8;
+  --oxide:#C4472E;
+  --line:#D4DEE8;
+  --ok:#2E8F6B;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -86,7 +87,7 @@ a{color:var(--oxide)}
 @media(max-width:860px){.login-page{grid-template-columns:1fr}}
 .login-art{
   background:var(--ink);color:#fff;padding:56px 44px;display:flex;flex-direction:column;justify-content:center;gap:22px;
-  background-image:radial-gradient(circle at 18% 22%,rgba(242,195,0,.10),transparent 45%);
+  background-image:radial-gradient(circle at 18% 22%,rgba(37,99,168,.14),transparent 45%);
 }
 .login-art h1{font-size:clamp(38px,6vw,66px);line-height:.94;letter-spacing:.01em}
 .login-art h1 em{font-style:normal;color:var(--safety)}
@@ -106,7 +107,7 @@ a{color:var(--oxide)}
 }
 .btn:hover{background:#000}
 .btn-y{background:var(--safety);color:var(--ink);font-weight:600}
-.btn-y:hover{background:#ffd426}
+.btn-y:hover{background:#3d7dc4}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--steel)}
 .btn-ghost:hover{background:#fff}
 .btn.wide{width:100%}
@@ -180,7 +181,7 @@ a{color:var(--oxide)}
 .notice.info .notice-tag{background:var(--plate);color:var(--steel)}
 .notice.warn{border-left:4px solid var(--oxide);background:#FDF3F0;border-color:#EBC9BE}
 .notice.warn .notice-tag{background:var(--oxide);color:#fff}
-td.hot,th.hot{background:#FFF9E0}
+td.hot,th.hot{background:#E7EEF5}
 th.hot{color:var(--ink)}
 .art svg,.tile .art svg{
   width:100%;height:80px;display:block;fill:none;
@@ -269,7 +270,7 @@ td.r,th.r{text-align:right;padding-right:0}
 .terms-box h5{font-family:'Oswald';font-size:13px;letter-spacing:.06em;margin:15px 0 4px;text-transform:uppercase}
 .terms-box h5:first-child{margin-top:0}
 .terms-box p{margin:0 0 4px;color:#2A3138}
-.agree{display:flex;gap:10px;align-items:flex-start;margin:14px 0;padding:12px;background:#FFF9E0;border:1px solid #E7D77F;border-radius:2px}
+.agree{display:flex;gap:10px;align-items:flex-start;margin:14px 0;padding:12px;background:#E7EEF5;border:1px solid #B9CCDF;border-radius:2px}
 .agree input{margin-top:3px;width:17px;height:17px;flex:none}
 .agree label{font-size:13.5px}
 .pay-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
@@ -278,7 +279,7 @@ td.r,th.r{text-align:right;padding-right:0}
 
 /* ---------- orders ---------- */
 .status{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap}
-.s-rev{background:#FFF3CD;color:#7A5C00}
+.s-rev{background:#DCE8F3;color:#1D4D7A}
 .s-prod{background:#E3ECF7;color:#23517F}
 .s-ship{background:#E9F2ED;color:var(--ok)}
 .empty{text-align:center;padding:52px 20px;color:var(--steel)}
@@ -1252,7 +1253,7 @@ function accountHTML(u){
       <h3 style="font-size:15px;margin-bottom:10px">Tier schedule</h3>
       <table>
         <thead><tr><th>Tier</th><th>12-mo spend</th><th>Product</th><th>Freight</th><th class="r">Rig credit</th></tr></thead>
-        <tbody>${TIERS.map(x => `<tr style="${x.name===t.name?'background:#FFF9E0':''}">
+        <tbody>${TIERS.map(x => `<tr style="${x.name===t.name?'background:#E7EEF5':''}">
           <td><b>${x.name}</b>${x.name===t.name?' <span class="sku">← you</span>':''}</td>
           <td class="mono">${x.min===0?'Any':money(x.min)+'+'}</td>
           <td class="mono">${Math.round(x.disc*100)}% off list</td>

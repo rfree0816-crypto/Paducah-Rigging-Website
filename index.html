@@ -228,7 +228,9 @@ th.hot{color:var(--ink)}
   padding-bottom:2px;border-bottom:2px solid transparent;
 }
 .brandbar-list span:hover{border-bottom-color:var(--safety)}
-@media(max-width:600px){.brandbar-list span{font-size:17px}}
+.brandbar-list span.brand-logo{border-bottom:none;padding-bottom:0}
+.brandbar-list span.brand-logo img{display:block;height:34px;width:auto;border-radius:3px;background:#fff;padding:3px 8px}
+@media(max-width:600px){.brandbar-list span{font-size:17px}.brandbar-list span.brand-logo img{height:28px}}
 .locked{
   margin-top:10px;border:1px dashed var(--line);border-radius:2px;background:var(--plate);
   padding:9px 11px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.06em;color:var(--steel);
@@ -554,7 +556,14 @@ const ITEMS = [{"upn":"PH-00150","part":"1018375","name":"1/4\" SPA","cat":"Shac
 
 ITEMS.forEach(i => { i.sku = i.upn; i.list = i.price; i.spec = i.part ? 'Part ' + i.part : i.upn; });
 const CATALOG = ITEMS;
-const BRANDS = ['Crosby','Peerless','CM','Harrington','Tiger','Black Bear'];
+const BRANDS = [
+  {name:'Crosby', logo:'images/brand-crosby.png'},
+  {name:'Harrington', logo:'images/brand-harrington.png'},
+  {name:'Tiger', logo:'images/brand-tiger.png'},
+  {name:'Black Bear', logo:'images/brand-blackbear.png'},
+  {name:'Peerless'},
+  {name:'CM'}
+];
 const CATS = CATS_META.map(c => c.name);
 
 /* ---------- seeded accounts ---------- */
@@ -934,7 +943,10 @@ function catalogHTML(u){
 
 function pubRender(){
   document.getElementById('pubCount').textContent = ITEMS.length;
-  document.getElementById('brandList').innerHTML = BRANDS.map(b => `<span>${b}</span>`).join('');
+  document.getElementById('brandList').innerHTML = BRANDS.map(b =>
+    b.logo ? `<span class="brand-logo"><img src="${b.logo}" alt="${b.name}" loading="lazy"></span>`
+           : `<span>${b.name}</span>`
+  ).join('');
   document.getElementById('pubFilters').innerHTML =
     `<button class="chip ${pubFilter==='All'?'on':''}" data-pcat="All">All lines</button>` +
     CATS_META.map(c => `<button class="chip ${pubFilter===c.name?'on':''}" data-pcat="${c.name}">${c.name}</button>`).join('');

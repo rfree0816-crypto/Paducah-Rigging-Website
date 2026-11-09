@@ -5,8 +5,8 @@ where the prototype was built. Read this before changing anything.
 
 ## What this is
 
-A B2B client ordering portal for Phatrigging, a rigging supply company
-(related to Paducah Rigging). One self-contained `index.html` — markup, CSS,
+A B2B client ordering portal for Phatrigging, a rigging supply company.
+One self-contained `index.html` — markup, CSS,
 catalog data, and logic all in one file. No build step, no dependencies, no
 framework. Open it in a browser and it runs.
 

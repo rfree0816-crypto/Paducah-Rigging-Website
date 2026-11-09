@@ -1,4 +1,4 @@
-# Paducah Rigging / Phatrigging — Client Order Portal
+# Phatrigging — Client Order Portal
 
 Prototype client ordering portal. Single self-contained HTML file, no build step,
 no dependencies. Open `index.html` in a browser and it runs.

@@ -554,12 +554,12 @@ const ITEMS = [{"upn":"PH-00150","part":"1018375","name":"1/4\" SPA","cat":"Shac
 ITEMS.forEach(i => { i.sku = i.upn; i.list = i.price; i.spec = i.part ? 'Part ' + i.part : i.upn; });
 const CATALOG = ITEMS;
 const BRANDS = [
-  {name:'Crosby'},
-  {name:'Harrington'},
-  {name:'Tiger'},
-  {name:'Black Bear'},
-  {name:'CM'},
-  {name:'AS&R'}
+  {name:'Crosby', logo:'images/brand-crosby.png'},
+  {name:'Harrington', logo:'images/brand-harrington.png'},
+  {name:'Tiger', logo:'images/brand-tiger.png'},
+  {name:'Black Bear', logo:'images/brand-blackbear.png'},
+  {name:'CM', logo:'images/brand-cm.png'},
+  {name:'AS&R', logo:'images/brand-asr.png'}
 ];
 const CATS = CATS_META.map(c => c.name);
 

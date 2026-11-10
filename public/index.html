@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230C1C2E'/%3E%3Cpath d='M30 46a20 20 0 0 1 40 0' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 46v10M70 46v10' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 58h56' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Anton&family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Anton&family=Bebas+Neue&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Anchor Navy theme */
@@ -564,12 +564,12 @@ const ITEMS = [{"upn":"PH-00150","part":"1018375","name":"1/4\" SPA","cat":"Shac
 ITEMS.forEach(i => { i.sku = i.upn; i.list = i.price; i.spec = i.part ? 'Part ' + i.part : i.upn; });
 const CATALOG = ITEMS;
 const BRANDS = [
-  {name:'Crosby', font:"'Anton',sans-serif", style:'italic', tracking:'.01em'},
-  {name:'Harrington', font:"'Oswald',sans-serif", weight:700, tracking:'.02em'},
-  {name:'Tiger', font:"'Staatliches',cursive", tracking:'.04em'},
-  {name:'Black Bear', font:"'Bebas Neue',cursive", tracking:'.02em'},
+  {name:'Crosby', font:"'Archivo Black',sans-serif", tracking:'.02em'},
+  {name:'Harrington', font:"'Anton',sans-serif", tracking:'0'},
+  {name:'Tiger', font:"'Anton',sans-serif", skew:-10, tracking:'.01em'},
+  {name:'Black Bear', font:"'Bebas Neue',cursive", skew:-8, tracking:'.02em'},
   {name:'CM', font:"'Anton',sans-serif", tracking:'.06em'},
-  {name:'AS&R', font:"'Staatliches',cursive", tracking:'.1em'}
+  {name:'AS&R', font:"'Bebas Neue',cursive", tracking:'.08em'}
 ];
 const CATS = CATS_META.map(c => c.name);
 
@@ -947,6 +947,7 @@ function pubRender(){
     const css = `font-family:${b.font};font-size:${sz};` +
       (b.weight ? `font-weight:${b.weight};` : '') +
       (b.style ? `font-style:${b.style};` : '') +
+      (b.skew ? `display:inline-block;transform:skewX(${b.skew}deg);` : '') +
       `letter-spacing:${b.tracking||'0'};text-transform:uppercase;`;
     return `<span class="dbrand" style="${css}">${b.name}</span>`;
   }).join('');

@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230C1C2E'/%3E%3Cpath d='M30 46a20 20 0 0 1 40 0' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 46v10M70 46v10' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 58h56' stroke='%232563A8' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Anton&family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Anchor Navy theme */
@@ -214,23 +214,30 @@ th.hot{color:var(--ink)}
 .list-strike{font-family:'IBM Plex Mono';font-size:12px;color:var(--steel);text-decoration:line-through}
 .uom{font-family:'IBM Plex Mono';font-size:11px;color:var(--steel)}
 .save{background:#E9F2ED;color:var(--ok);font-family:'IBM Plex Mono';font-size:10px;padding:2px 6px;border-radius:2px;letter-spacing:.06em}
-.brandbar{
-  background:var(--ink);border-radius:3px;padding:16px 18px;margin-bottom:22px;
-  border-left:4px solid var(--safety);
+.distro-footer{
+  background:var(--ink);padding:46px 0 38px;margin-top:48px;
+  border-top:4px solid var(--safety);
 }
-.brandbar-lbl{
-  font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--safety);margin-bottom:11px;
+.distro-footer-in{max-width:1140px;margin:0 auto;padding:0 16px}
+.distro-footer-lbl{
+  font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--safety);margin-bottom:22px;font-weight:600;
 }
-.brandbar-list{display:flex;flex-wrap:wrap;gap:9px 26px;align-items:center}
-.brandbar-list span{
-  font-family:'Oswald';font-size:21px;letter-spacing:.08em;text-transform:uppercase;color:#fff;
-  padding-bottom:2px;border-bottom:2px solid transparent;
+.distro-list{display:flex;flex-wrap:wrap;gap:16px 44px;align-items:baseline}
+.distro-list .dbrand{
+  color:#fff;line-height:1;white-space:nowrap;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+  transition:color .15s;
 }
-.brandbar-list span:hover{border-bottom-color:var(--safety)}
-.brandbar-list span.brand-logo{border-bottom:none;padding-bottom:0}
-.brandbar-list span.brand-logo img{display:block;height:34px;width:auto;border-radius:3px;background:#fff;padding:3px 8px}
-@media(max-width:600px){.brandbar-list span{font-size:17px}.brandbar-list span.brand-logo img{height:28px}}
+.distro-list .dbrand:hover{color:var(--safety)}
+.distro-footer-fine{
+  margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);
+  font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.04em;color:var(--galv);
+}
+@media(max-width:700px){
+  .distro-footer{padding:34px 0 28px}
+  .distro-list{gap:12px 28px}
+}
 .locked{
   margin-top:10px;border:1px dashed var(--line);border-radius:2px;background:var(--plate);
   padding:9px 11px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.06em;color:var(--steel);
@@ -358,12 +365,15 @@ td.r,th.r{text-align:right;padding-right:0}
       </div>
     </div>
 
-    <div class="brandbar">
-      <div class="brandbar-lbl">Authorized distributor</div>
-      <div class="brandbar-list" id="brandList"></div>
-    </div>
     <div class="filters" id="pubFilters"></div>
     <div class="grid" id="pubGrid"></div>
+  </div>
+  <div class="distro-footer">
+    <div class="distro-footer-in">
+      <div class="distro-footer-lbl">Authorized distributor for</div>
+      <div class="distro-list" id="brandList"></div>
+      <div class="distro-footer-fine">Phatrigging stocks genuine product from each line above — ask your rep for mill certs or load-chart documentation on any part number.</div>
+    </div>
   </div>
 </div>
 
@@ -554,12 +564,12 @@ const ITEMS = [{"upn":"PH-00150","part":"1018375","name":"1/4\" SPA","cat":"Shac
 ITEMS.forEach(i => { i.sku = i.upn; i.list = i.price; i.spec = i.part ? 'Part ' + i.part : i.upn; });
 const CATALOG = ITEMS;
 const BRANDS = [
-  {name:'Crosby', logo:'images/brand-crosby.png'},
-  {name:'Harrington', logo:'images/brand-harrington.png'},
-  {name:'Tiger', logo:'images/brand-tiger.png'},
-  {name:'Black Bear', logo:'images/brand-blackbear.png'},
-  {name:'CM', logo:'images/brand-cm.png'},
-  {name:'AS&R', logo:'images/brand-asr.png'}
+  {name:'Crosby', font:"'Anton',sans-serif", style:'italic', tracking:'.01em'},
+  {name:'Harrington', font:"'Oswald',sans-serif", weight:700, tracking:'.02em'},
+  {name:'Tiger', font:"'Staatliches',cursive", tracking:'.04em'},
+  {name:'Black Bear', font:"'Bebas Neue',cursive", tracking:'.02em'},
+  {name:'CM', font:"'Anton',sans-serif", tracking:'.06em'},
+  {name:'AS&R', font:"'Staatliches',cursive", tracking:'.1em'}
 ];
 const CATS = CATS_META.map(c => c.name);
 
@@ -932,10 +942,14 @@ function catalogHTML(u){
 
 function pubRender(){
   document.getElementById('pubCount').textContent = ITEMS.length;
-  document.getElementById('brandList').innerHTML = BRANDS.map(b =>
-    b.logo ? `<span class="brand-logo"><img src="${b.logo}" alt="${b.name}" loading="lazy"></span>`
-           : `<span>${b.name}</span>`
-  ).join('');
+  document.getElementById('brandList').innerHTML = BRANDS.map(b => {
+    const sz = b.size || 'clamp(26px,4vw,40px)';
+    const css = `font-family:${b.font};font-size:${sz};` +
+      (b.weight ? `font-weight:${b.weight};` : '') +
+      (b.style ? `font-style:${b.style};` : '') +
+      `letter-spacing:${b.tracking||'0'};text-transform:uppercase;`;
+    return `<span class="dbrand" style="${css}">${b.name}</span>`;
+  }).join('');
   document.getElementById('pubFilters').innerHTML =
     `<button class="chip ${pubFilter==='All'?'on':''}" data-pcat="All">All lines</button>` +
     CATS_META.map(c => `<button class="chip ${pubFilter===c.name?'on':''}" data-pcat="${c.name}">${c.name}</button>`).join('');

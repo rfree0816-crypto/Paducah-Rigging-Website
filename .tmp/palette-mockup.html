@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phatrigging — Palette Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:40px 20px;
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    background:#e9eaec;color:#14181C;
+  }
+  h1.page-title{
+    font-family:'Oswald';text-transform:uppercase;letter-spacing:.04em;
+    text-align:center;margin:0 0 6px;font-size:26px;
+  }
+  p.page-sub{text-align:center;color:#555;margin:0 0 36px;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.06em}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+    gap:28px;max-width:1300px;margin:0 auto;
+  }
+  .mock{
+    border-radius:10px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.14);
+    background:var(--bg);
+  }
+  .mock-label{
+    padding:12px 18px;font-family:'Oswald';font-size:13px;letter-spacing:.1em;
+    text-transform:uppercase;color:#666;background:#fff;border-bottom:1px solid #ddd;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .mock-label span.n{font-family:'IBM Plex Mono';font-size:10px;color:#999}
+  .topbar{
+    background:var(--ink);color:#fff;padding:12px 18px;
+    display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--accent);
+  }
+  .brand{font-family:'Oswald';font-size:19px;font-weight:700;letter-spacing:.05em}
+  .brand em{font-style:normal;color:var(--accent)}
+  .nav{display:flex;gap:4px;margin-left:auto}
+  .nav button{
+    background:transparent;border:none;color:var(--galv);font-family:'Oswald';
+    font-size:11px;letter-spacing:.07em;text-transform:uppercase;padding:6px 9px;border-radius:2px;
+  }
+  .nav button.on{background:var(--accent);color:var(--ink);font-weight:700}
+  .body-area{padding:20px;background:var(--bg)}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px;
+    display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;
+  }
+  .card .meta{display:flex;flex-direction:column;gap:3px}
+  .card .meta .nm{font-weight:600;font-size:13.5px;color:var(--ink)}
+  .card .meta .sub{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--steel)}
+  .card .price{font-family:'IBM Plex Mono';font-weight:600;font-size:15px;color:var(--ink)}
+  .tag{
+    display:inline-block;font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.06em;
+    text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:8px;
+  }
+  .tag.ok{background:var(--ok);color:#fff}
+  .tag.alert{background:var(--oxide);color:#fff}
+  .btn-row{display:flex;gap:10px;margin-top:14px}
+  .btn{
+    font-family:'Oswald';font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    padding:10px 18px;border-radius:4px;border:none;font-weight:600;
+  }
+  .btn-primary{background:var(--accent);color:var(--ink)}
+  .btn-ghost{background:transparent;color:var(--steel);border:1px solid var(--line)}
+  .swatches{display:flex;gap:0}
+  .sw{flex:1;height:34px;display:flex;align-items:flex-end;justify-content:center;
+      font-family:'IBM Plex Mono';font-size:8px;color:#fff;padding-bottom:3px;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Phatrigging — 4 Palette Directions</h1>
+<p class="page-sub">Same layout, four color treatments — compare side by side</p>
+
+<div class="grid">
+
+  <!-- 1. CROSBY CATALOG -->
+  <div class="mock" style="--ink:#15191E;--steel:#3D4752;--galv:#C9CFD6;--bg:#F7F8FA;--accent:#F5B700;--oxide:#C0392B;--ok:#1F6F4A;--line:#D8DCE1;">
+    <div class="mock-label">1 · Crosby Catalog — refined original <span class="n">#F5B700 / #15191E</span></div>
+    <div class="topbar">
+      <div class="brand">PHAT<em>RIGGING</em></div>
+      <div class="nav"><button class="on">Catalog</button><button>Cart</button><button>Account</button></div>
+    </div>
+    <div class="body-area">
+      <div class="card">
+        <div class="meta"><span class="nm">3/4" SAS Shackle <span class="tag ok">In stock</span></span><span class="sub">PH-00156 · Domestic · 4-3/4 t</span></div>
+        <span class="price">$54.22</span>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="nm">2 Ton Hoist <span class="tag alert">Freight item</span></span><span class="sub">CM Lodestar · 2 t</span></div>
+        <span class="price">$1,842.00</span>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary">Add to cart</button><button class="btn btn-ghost">View spec</button></div>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#15191E">ink</div><div class="sw" style="background:#3D4752">steel</div>
+      <div class="sw" style="background:#F5B700;color:#15191E;text-shadow:none">accent</div>
+      <div class="sw" style="background:#C0392B">oxide</div><div class="sw" style="background:#1F6F4A">ok</div>
+    </div>
+  </div>
+
+  <!-- 2. DOCKYARD NAVY -->
+  <div class="mock" style="--ink:#0E1F33;--steel:#3E5C76;--galv:#B9C6D4;--bg:#F4F1EA;--accent:#C98A3B;--oxide:#A63D2F;--ok:#2E7D5B;--line:#DEDACF;">
+    <div class="mock-label">2 · Dockyard Navy — maritime premium <span class="n">#C98A3B / #0E1F33</span></div>
+    <div class="topbar">
+      <div class="brand">PHAT<em>RIGGING</em></div>
+      <div class="nav"><button class="on">Catalog</button><button>Cart</button><button>Account</button></div>
+    </div>
+    <div class="body-area">
+      <div class="card">
+        <div class="meta"><span class="nm">3/4" SAS Shackle <span class="tag ok">In stock</span></span><span class="sub">PH-00156 · Domestic · 4-3/4 t</span></div>
+        <span class="price">$54.22</span>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="nm">2 Ton Hoist <span class="tag alert">Freight item</span></span><span class="sub">CM Lodestar · 2 t</span></div>
+        <span class="price">$1,842.00</span>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary">Add to cart</button><button class="btn btn-ghost">View spec</button></div>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#0E1F33">ink</div><div class="sw" style="background:#3E5C76">steel</div>
+      <div class="sw" style="background:#C98A3B;color:#0E1F33;text-shadow:none">accent</div>
+      <div class="sw" style="background:#A63D2F">oxide</div><div class="sw" style="background:#2E7D5B">ok</div>
+    </div>
+  </div>
+
+  <!-- 3. FORGE & IRON -->
+  <div class="mock" style="--ink:#111111;--steel:#4A4A4A;--galv:#C7C7C7;--bg:#FAFAFA;--accent:#FF6B1A;--oxide:#D62828;--ok:#2A9D6E;--line:#DDDDDD;">
+    <div class="mock-label">3 · Forge &amp; Iron — bold / high-contrast <span class="n">#FF6B1A / #111</span></div>
+    <div class="topbar">
+      <div class="brand">PHAT<em>RIGGING</em></div>
+      <div class="nav"><button class="on">Catalog</button><button>Cart</button><button>Account</button></div>
+    </div>
+    <div class="body-area">
+      <div class="card">
+        <div class="meta"><span class="nm">3/4" SAS Shackle <span class="tag ok">In stock</span></span><span class="sub">PH-00156 · Domestic · 4-3/4 t</span></div>
+        <span class="price">$54.22</span>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="nm">2 Ton Hoist <span class="tag alert">Freight item</span></span><span class="sub">CM Lodestar · 2 t</span></div>
+        <span class="price">$1,842.00</span>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary">Add to cart</button><button class="btn btn-ghost">View spec</button></div>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#111111">ink</div><div class="sw" style="background:#4A4A4A">steel</div>
+      <div class="sw" style="background:#FF6B1A">accent</div>
+      <div class="sw" style="background:#D62828">oxide</div><div class="sw" style="background:#2A9D6E">ok</div>
+    </div>
+  </div>
+
+  <!-- 4. QUARRY SLATE -->
+  <div class="mock" style="--ink:#1C2429;--steel:#5B6670;--galv:#C4CBD1;--bg:#F3F4F5;--accent:#C9A24B;--oxide:#9C4A3C;--ok:#3F7A5C;--line:#DCDFE2;">
+    <div class="mock-label">4 · Quarry Slate — muted / enterprise <span class="n">#C9A24B / #1C2429</span></div>
+    <div class="topbar">
+      <div class="brand">PHAT<em>RIGGING</em></div>
+      <div class="nav"><button class="on">Catalog</button><button>Cart</button><button>Account</button></div>
+    </div>
+    <div class="body-area">
+      <div class="card">
+        <div class="meta"><span class="nm">3/4" SAS Shackle <span class="tag ok">In stock</span></span><span class="sub">PH-00156 · Domestic · 4-3/4 t</span></div>
+        <span class="price">$54.22</span>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="nm">2 Ton Hoist <span class="tag alert">Freight item</span></span><span class="sub">CM Lodestar · 2 t</span></div>
+        <span class="price">$1,842.00</span>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary">Add to cart</button><button class="btn btn-ghost">View spec</button></div>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#1C2429">ink</div><div class="sw" style="background:#5B6670">steel</div>
+      <div class="sw" style="background:#C9A24B;color:#1C2429;text-shadow:none">accent</div>
+      <div class="sw" style="background:#9C4A3C">oxide</div><div class="sw" style="background:#3F7A5C">ok</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

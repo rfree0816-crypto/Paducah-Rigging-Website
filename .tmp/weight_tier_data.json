@@ -1,0 +1,616 @@
+{
+  "generatedAt": "2026-09-24T20:19:15.133Z",
+  "totalItems": 497,
+  "placeholderCount": 462,
+  "sourcedCount": 32,
+  "byCategory": {
+    "Shackles": {
+      "total": 61,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 58
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 3
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 9.38,
+      "maxWt": 98.25,
+      "placeholderCount": 29
+    },
+    "Hooks": {
+      "total": 74,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 74
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 4,
+      "maxWt": 4,
+      "placeholderCount": 74
+    },
+    "Hoists": {
+      "total": 65,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 65
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 40,
+      "maxWt": 40,
+      "placeholderCount": 65
+    },
+    "Wire rope clips": {
+      "total": 29,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 29
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 0.8,
+      "maxWt": 0.8,
+      "placeholderCount": 29
+    },
+    "Nylon slings": {
+      "total": 46,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 46
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 4,
+      "maxWt": 4,
+      "placeholderCount": 46
+    },
+    "Poly round slings": {
+      "total": 37,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 37
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 3,
+      "maxWt": 3,
+      "placeholderCount": 37
+    },
+    "Master links": {
+      "total": 20,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 20
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 6,
+      "maxWt": 6,
+      "placeholderCount": 20
+    },
+    "Binders": {
+      "total": 7,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 7
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 12,
+      "maxWt": 12,
+      "placeholderCount": 7
+    },
+    "Snatch blocks": {
+      "total": 12,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 12
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 18,
+      "maxWt": 18,
+      "placeholderCount": 12
+    },
+    "Wedge sockets": {
+      "total": 8,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 8
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 7,
+      "maxWt": 7,
+      "placeholderCount": 8
+    },
+    "Turnbuckles": {
+      "total": 4,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 4
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 5,
+      "maxWt": 5,
+      "placeholderCount": 4
+    },
+    "Rope": {
+      "total": 20,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 19
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 33.25,
+      "maxWt": 35,
+      "placeholderCount": 19
+    },
+    "Tie-downs": {
+      "total": 5,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 5
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 6,
+      "maxWt": 6,
+      "placeholderCount": 5
+    },
+    "Deck fittings": {
+      "total": 48,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 47
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 1
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 25.63,
+      "maxWt": 55,
+      "placeholderCount": 47
+    },
+    "Tools": {
+      "total": 10,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 10
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 8,
+      "maxWt": 8,
+      "placeholderCount": 10
+    },
+    "Safety": {
+      "total": 18,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 18
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 2,
+      "maxWt": 2,
+      "placeholderCount": 18
+    },
+    "Barge & marine": {
+      "total": 13,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 13
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 20,
+      "maxWt": 20,
+      "placeholderCount": 13
+    },
+    "Shop supplies": {
+      "total": 7,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 7
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 4.14,
+      "maxWt": 5,
+      "placeholderCount": 6
+    },
+    "Chain": {
+      "total": 13,
+      "tiers": [
+        {
+          "name": "Tier 1",
+          "lo": 0,
+          "hi": 50,
+          "count": 13
+        },
+        {
+          "name": "Tier 2",
+          "lo": 50,
+          "hi": 100,
+          "count": 0
+        },
+        {
+          "name": "Tier 3",
+          "lo": 100,
+          "hi": 150,
+          "count": 0
+        },
+        {
+          "name": "Tier 4",
+          "lo": 150,
+          "hi": null,
+          "count": 0
+        }
+      ],
+      "avgWt": 2.72,
+      "maxWt": 8.4,
+      "placeholderCount": 13
+    }
+  }
+}

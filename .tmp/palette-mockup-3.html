@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phatrigging — #3, #6, #8 Home + Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px 20px 80px;font-family:'IBM Plex Sans',system-ui,sans-serif;background:#e4e5e7;color:#14181C}
+  h1.page-title{font-family:'Oswald';text-transform:uppercase;letter-spacing:.04em;text-align:center;margin:0 0 6px;font-size:26px}
+  p.page-sub{text-align:center;color:#555;margin:0 0 40px;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.06em}
+  .section{max-width:1200px;margin:0 auto 56px}
+  .section-label{
+    font-family:'Oswald';font-size:17px;letter-spacing:.08em;text-transform:uppercase;
+    margin-bottom:14px;display:flex;align-items:center;gap:12px;
+  }
+  .section-label .n{font-family:'IBM Plex Mono';font-size:11px;color:#777;font-weight:400;text-transform:none;letter-spacing:0}
+  .panel-pair{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border-radius:10px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.16)}
+  @media(max-width:860px){.panel-pair{grid-template-columns:1fr}}
+
+  /* ---- HOME / HERO mock ---- */
+  .home-mock{background:var(--ink);color:#fff;padding:40px 34px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+  .home-mock::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,color-mix(in srgb, var(--accent) 16%, transparent),transparent 45%)}
+  .home-mock > *{position:relative;z-index:1}
+  .hbrand{font-family:'Oswald';font-size:16px;font-weight:700;letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+  .hbrand em{font-style:normal;color:var(--accent)}
+  .hbrand small{font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.18em;color:var(--galv);text-transform:uppercase}
+  .home-mock h1{font-family:'Oswald';font-size:clamp(28px,4vw,42px);line-height:1;letter-spacing:.01em;margin:6px 0;text-transform:uppercase}
+  .home-mock h1 em{font-style:normal;color:var(--accent)}
+  .home-mock p.sub{color:var(--galv);max-width:36ch;margin:0;font-size:13.5px;line-height:1.5}
+  .stats{display:flex;flex-wrap:wrap;gap:0;border:1px solid color-mix(in srgb, #fff 18%, transparent);border-radius:4px;overflow:hidden;max-width:420px}
+  .stats div{flex:1 1 42%;padding:9px 11px;border-right:1px solid color-mix(in srgb, #fff 14%, transparent);font-family:'IBM Plex Mono';font-size:10px;color:var(--galv)}
+  .stats div b{display:block;font-size:16px;color:#fff}
+  .home-btns{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
+  .hbtn{font-family:'Oswald';font-size:12px;letter-spacing:.07em;text-transform:uppercase;padding:11px 18px;border-radius:4px;border:1.5px solid transparent;font-weight:600}
+  .hbtn.primary{background:var(--accent);color:var(--ink)}
+  .hbtn.ghost{background:transparent;color:#fff;border-color:color-mix(in srgb, #fff 32%, transparent)}
+
+  /* ---- LOGIN FORM side ---- */
+  .login-mock{background:#f4f5f6;padding:34px 30px;display:flex;flex-direction:column;justify-content:center}
+  .login-mock h2{font-family:'Oswald';font-size:19px;text-transform:uppercase;letter-spacing:.03em;margin:0 0 4px}
+  .login-mock p{color:#666;font-size:12.5px;margin:0 0 16px}
+  .fld{margin-bottom:11px}
+  .fld label{display:block;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:4px}
+  .fld input{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:3px;background:#fff;font-family:inherit}
+  .loginbtn{width:100%;background:var(--accent);color:var(--ink);border:none;border-radius:4px;padding:11px;font-family:'Oswald';letter-spacing:.08em;text-transform:uppercase;font-size:13px;font-weight:700;margin-top:4px}
+
+  /* ---- CATALOG mock ---- */
+  .cat-mock{background:var(--bg);padding:22px 24px;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.16)}
+  .cat-topbar{background:var(--ink);color:#fff;padding:11px 16px;margin:-22px -24px 18px;border-bottom:3px solid var(--accent);display:flex;align-items:center;gap:12px;border-radius:10px 10px 0 0}
+  .cbrand{font-family:'Oswald';font-size:16px;font-weight:700;letter-spacing:.05em}
+  .cbrand em{font-style:normal;color:var(--accent)}
+  .cnav{display:flex;gap:3px;margin-left:auto}
+  .cnav button{background:transparent;border:none;color:var(--galv);font-family:'Oswald';font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:2px}
+  .cnav button.on{background:var(--accent);color:var(--ink);font-weight:700}
+  .brandbar{background:var(--ink);border-radius:5px;padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--accent)}
+  .brandbar-lbl{font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+  .brandbar-list{display:flex;flex-wrap:wrap;gap:6px 18px}
+  .brandbar-list span{font-family:'Oswald';font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+  .chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:3px;padding:5px 10px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel)}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  @media(max-width:700px){.igrid{grid-template-columns:1fr 1fr}}
+  .item{border:1px solid var(--line);background:#fff;border-radius:5px;overflow:hidden}
+  .item .art{background:linear-gradient(160deg,#fff 0%,var(--plate) 100%);border-bottom:1px solid var(--line);padding:14px 12px 8px;text-align:center}
+  .item .art svg{width:60%;height:50px;stroke:var(--steel);stroke-width:2.2;fill:none;stroke-linecap:round}
+  .item .ibody{padding:11px 12px 12px}
+  .item .cat{font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentdark, var(--accent))}
+  .item h4{font-family:'Oswald';font-size:14px;margin:3px 0 2px;text-transform:uppercase}
+  .item .spec{font-family:'IBM Plex Mono';font-size:10px;color:var(--steel);margin-bottom:6px}
+  .item .spec b{color:var(--oxide)}
+  .item .price-row{display:flex;align-items:baseline;gap:6px}
+  .item .price{font-family:'Oswald';font-size:19px}
+  .item .uom{font-family:'IBM Plex Mono';font-size:9.5px;color:var(--steel)}
+  .tagpill{display:inline-block;font-family:'IBM Plex Mono';font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 6px;border-radius:3px;margin-top:6px}
+  .tagpill.ok{background:var(--ok);color:#fff}
+  .addbtn{width:100%;margin-top:8px;background:var(--accent);color:var(--ink);border:none;border-radius:3px;padding:8px;font-family:'Oswald';font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Phatrigging — #3, #6, #8 in Context</h1>
+<p class="page-sub">Home / landing hero + sign-in, and the internal signed-in catalog grid, for each palette</p>
+
+<!-- ============ #3 FORGE & IRON ============ -->
+<div class="section" style="--ink:#111111;--steel:#4A4A4A;--galv:#C7C7C7;--bg:#FAFAFA;--accent:#FF6B1A;--oxide:#D62828;--ok:#2A9D6E;--line:#DDDDDD;--plate:#F0F0F0;">
+  <div class="section-label">#3 — Forge &amp; Iron <span class="n">near-black + hot orange</span></div>
+
+  <div class="panel-pair" style="margin-bottom:14px">
+    <div class="home-mock">
+      <div class="hbrand">PHAT<em>RIGGING</em> <small>Client portal</small></div>
+      <h1>The gear to<br>get the<br><em>job done.</em></h1>
+      <p class="sub">In stock across five locations — rated, certified, and priced to your account.</p>
+      <div class="stats">
+        <div><b>5</b>Locations</div><div><b>9</b>Product lines</div>
+        <div><b>4</b>Price tiers</div><div><b>2%</b>Rig credit</div>
+      </div>
+      <div class="home-btns"><button class="hbtn ghost">Browse catalog without signing in →</button></div>
+    </div>
+    <div class="login-mock">
+      <h2>Sign in</h2>
+      <p>Accounts are set up by your Phatrigging rep.</p>
+      <div class="fld"><label>Work email</label><input placeholder="you@company.com"></div>
+      <div class="fld"><label>Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="loginbtn">Sign in</button>
+    </div>
+  </div>
+
+  <div class="cat-mock">
+    <div class="cat-topbar">
+      <div class="cbrand">PHAT<em>RIGGING</em></div>
+      <div class="cnav"><button class="on">Catalog</button><button>Cart (3)</button><button>Orders</button><button>Account</button></div>
+    </div>
+    <div class="brandbar">
+      <div class="brandbar-lbl">Authorized distributor</div>
+      <div class="brandbar-list"><span>Crosby</span><span>CM</span><span>Van Beest</span><span>Harrington</span></div>
+    </div>
+    <div class="chips"><div class="chip on">All</div><div class="chip">Shackles</div><div class="chip">Hooks</div><div class="chip">Hoists</div><div class="chip">Chain</div></div>
+    <div class="igrid">
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><path d="M30 40a20 20 0 0 1 40 0M30 40v8M70 40v8M24 48h52"/></svg></div>
+        <div class="ibody"><div class="cat">Shackles</div><h4>3/4" SAS</h4><div class="spec">PH-00156 · <b>4-3/4 t</b></div>
+          <div class="price-row"><span class="price">$54.22</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn">Add to cart</button></div></div>
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><circle cx="50" cy="20" r="10"/><path d="M50 30v14M38 44h24"/></svg></div>
+        <div class="ibody"><div class="cat">Hoists</div><h4>2 Ton CM Lodestar</h4><div class="spec">CM-LS2 · <b>2 t</b></div>
+          <div class="price-row"><span class="price">$1,842</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn">Add to cart</button></div></div>
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><path d="M30 15v25a10 10 0 0 0 20 0v-5M60 15h10v30h-10z"/></svg></div>
+        <div class="ibody"><div class="cat">Hooks</div><h4>5 Ton Alloy Eye</h4><div class="spec">1022424 · <b>5 t</b></div>
+          <div class="price-row"><span class="price">$61.74</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn">Add to cart</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ #6 PLASMA ARC ============ -->
+<div class="section" style="--ink:#0D1117;--steel:#4A5568;--galv:#C3CBD6;--bg:#F7F8FA;--accent:#00B4D8;--oxide:#E63946;--ok:#2DC08E;--line:#DCE1E8;--plate:#EEF1F4;">
+  <div class="section-label">#6 — Plasma Arc <span class="n">near-black + welding-flash blue</span></div>
+
+  <div class="panel-pair" style="margin-bottom:14px">
+    <div class="home-mock">
+      <div class="hbrand">PHAT<em>RIGGING</em> <small>Client portal</small></div>
+      <h1>The gear to<br>get the<br><em>job done.</em></h1>
+      <p class="sub">In stock across five locations — rated, certified, and priced to your account.</p>
+      <div class="stats">
+        <div><b>5</b>Locations</div><div><b>9</b>Product lines</div>
+        <div><b>4</b>Price tiers</div><div><b>2%</b>Rig credit</div>
+      </div>
+      <div class="home-btns"><button class="hbtn ghost">Browse catalog without signing in →</button></div>
+    </div>
+    <div class="login-mock">
+      <h2>Sign in</h2>
+      <p>Accounts are set up by your Phatrigging rep.</p>
+      <div class="fld"><label>Work email</label><input placeholder="you@company.com"></div>
+      <div class="fld"><label>Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="loginbtn">Sign in</button>
+    </div>
+  </div>
+
+  <div class="cat-mock">
+    <div class="cat-topbar">
+      <div class="cbrand">PHAT<em>RIGGING</em></div>
+      <div class="cnav"><button class="on">Catalog</button><button>Cart (3)</button><button>Orders</button><button>Account</button></div>
+    </div>
+    <div class="brandbar">
+      <div class="brandbar-lbl">Authorized distributor</div>
+      <div class="brandbar-list"><span>Crosby</span><span>CM</span><span>Van Beest</span><span>Harrington</span></div>
+    </div>
+    <div class="chips"><div class="chip on">All</div><div class="chip">Shackles</div><div class="chip">Hooks</div><div class="chip">Hoists</div><div class="chip">Chain</div></div>
+    <div class="igrid">
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><path d="M30 40a20 20 0 0 1 40 0M30 40v8M70 40v8M24 48h52"/></svg></div>
+        <div class="ibody"><div class="cat">Shackles</div><h4>3/4" SAS</h4><div class="spec">PH-00156 · <b>4-3/4 t</b></div>
+          <div class="price-row"><span class="price">$54.22</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn">Add to cart</button></div></div>
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><circle cx="50" cy="20" r="10"/><path d="M50 30v14M38 44h24"/></svg></div>
+        <div class="ibody"><div class="cat">Hoists</div><h4>2 Ton CM Lodestar</h4><div class="spec">CM-LS2 · <b>2 t</b></div>
+          <div class="price-row"><span class="price">$1,842</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn">Add to cart</button></div></div>
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><path d="M30 15v25a10 10 0 0 0 20 0v-5M60 15h10v30h-10z"/></svg></div>
+        <div class="ibody"><div class="cat">Hooks</div><h4>5 Ton Alloy Eye</h4><div class="spec">1022424 · <b>5 t</b></div>
+          <div class="price-row"><span class="price">$61.74</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn">Add to cart</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ #8 INDUSTRIAL VOLTAGE ============ -->
+<div class="section" style="--ink:#101314;--steel:#4B5257;--galv:#CBD1D3;--bg:#F8FAF6;--accent:#C8FF00;--oxide:#D6421F;--ok:#1F9D6E;--line:#DDE3DE;--plate:#EFF3EC;">
+  <div class="section-label">#8 — Industrial Voltage <span class="n">near-black + acid-lime</span></div>
+
+  <div class="panel-pair" style="margin-bottom:14px">
+    <div class="home-mock">
+      <div class="hbrand">PHAT<em>RIGGING</em> <small>Client portal</small></div>
+      <h1>The gear to<br>get the<br><em>job done.</em></h1>
+      <p class="sub">In stock across five locations — rated, certified, and priced to your account.</p>
+      <div class="stats">
+        <div><b>5</b>Locations</div><div><b>9</b>Product lines</div>
+        <div><b>4</b>Price tiers</div><div><b>2%</b>Rig credit</div>
+      </div>
+      <div class="home-btns"><button class="hbtn ghost">Browse catalog without signing in →</button></div>
+    </div>
+    <div class="login-mock">
+      <h2>Sign in</h2>
+      <p>Accounts are set up by your Phatrigging rep.</p>
+      <div class="fld"><label>Work email</label><input placeholder="you@company.com"></div>
+      <div class="fld"><label>Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="loginbtn" style="color:#101314">Sign in</button>
+    </div>
+  </div>
+
+  <div class="cat-mock">
+    <div class="cat-topbar">
+      <div class="cbrand">PHAT<em>RIGGING</em></div>
+      <div class="cnav"><button class="on" style="color:#101314">Catalog</button><button>Cart (3)</button><button>Orders</button><button>Account</button></div>
+    </div>
+    <div class="brandbar">
+      <div class="brandbar-lbl">Authorized distributor</div>
+      <div class="brandbar-list"><span>Crosby</span><span>CM</span><span>Van Beest</span><span>Harrington</span></div>
+    </div>
+    <div class="chips"><div class="chip on">All</div><div class="chip">Shackles</div><div class="chip">Hooks</div><div class="chip">Hoists</div><div class="chip">Chain</div></div>
+    <div class="igrid">
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><path d="M30 40a20 20 0 0 1 40 0M30 40v8M70 40v8M24 48h52"/></svg></div>
+        <div class="ibody"><div class="cat">Shackles</div><h4>3/4" SAS</h4><div class="spec">PH-00156 · <b>4-3/4 t</b></div>
+          <div class="price-row"><span class="price">$54.22</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn" style="color:#101314">Add to cart</button></div></div>
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><circle cx="50" cy="20" r="10"/><path d="M50 30v14M38 44h24"/></svg></div>
+        <div class="ibody"><div class="cat">Hoists</div><h4>2 Ton CM Lodestar</h4><div class="spec">CM-LS2 · <b>2 t</b></div>
+          <div class="price-row"><span class="price">$1,842</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn" style="color:#101314">Add to cart</button></div></div>
+      <div class="item"><div class="art"><svg viewBox="0 0 100 60"><path d="M30 15v25a10 10 0 0 0 20 0v-5M60 15h10v30h-10z"/></svg></div>
+        <div class="ibody"><div class="cat">Hooks</div><h4>5 Ton Alloy Eye</h4><div class="spec">1022424 · <b>5 t</b></div>
+          <div class="price-row"><span class="price">$61.74</span><span class="uom">/ ea</span></div>
+          <span class="tagpill ok">In stock</span><button class="addbtn" style="color:#101314">Add to cart</button></div></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -882,6 +882,7 @@ function selectorHTML(cat, u){
   const grp = groups.length ? (grpSel[cat] || groups[0]) : '';
   const k = keyOf(cat, grp);
   const list = scopeItems(cat, grp);
+  const hasWLL = list.some(x => x.wll), hasCAP = list.some(x => x.cap);
   const p = currentItem(cat, grp);
   if(!p){                                   // group exists but holds no items
     return `${DESC[cat] ? `<p class="catdesc">${DESC[cat]}</p>` : ''}
@@ -948,14 +949,14 @@ function selectorHTML(cat, u){
 
   <div class="panel" style="margin-top:14px">
     <table>
-      <thead><tr><th>Item</th><th>Part #</th><th>Unique part #</th><th class="r">Vert / Choker / Basket</th><th class="r">Rated capacity</th>${u?'<th class="r">Price</th><th></th>':''}</tr></thead>
+      <thead><tr><th>Item</th><th>Part #</th><th>Unique part #</th>${hasWLL?'<th class="r">Vert / Choker / Basket</th>':''}${hasCAP?'<th class="r">Rated capacity</th>':''}${u?'<th class="r">Price</th><th></th>':''}</tr></thead>
       <tbody>
         ${list.map(i => `<tr>
           <td>${i.name}</td>
           <td class="sku">${i.part || ''}</td>
           <td class="sku">${i.upn}</td>
-          <td class="r sku">${i.wll?`${i.wll.v.toLocaleString()} / ${i.wll.c.toLocaleString()} / ${i.wll.b.toLocaleString()} lb`:'—'}</td>
-          <td class="r sku">${i.cap?i.cap.rating:'—'}</td>
+          ${hasWLL?`<td class="r sku">${i.wll?`${i.wll.v.toLocaleString()} / ${i.wll.c.toLocaleString()} / ${i.wll.b.toLocaleString()} lb`:'—'}</td>`:''}
+          ${hasCAP?`<td class="r sku">${i.cap?i.cap.rating:'—'}</td>`:''}
           ${ u ? `<td class="r mono">${money(netPrice(i,u))}</td>
                  <td class="r"><button class="linkbtn addbtn" data-sku="${i.upn}">Add</button></td>` : '' }
         </tr>`).join('')}

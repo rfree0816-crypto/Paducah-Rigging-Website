@@ -771,14 +771,19 @@ const noteFor = (cat, grp) => NOTES[cat + '|' + grp] || NOTES[cat] || null;
      images/<category>.jpg        e.g. images/shackles.jpg
    If none exist, the line drawing is used. No code changes needed to add photos. */
 const GALLERY = {
-  'Shackles': ["images/gallery/shackles/01.png"],
-  'Hooks': ["images/gallery/hooks/01.png"],
-  'Hoists': ["images/gallery/hoists/01.png"],
-  'Nylon slings': ["images/gallery/nylon-slings/01.png"],
-  'Poly round slings': ["images/gallery/poly-round-slings/01.png"],
-  'Rope': ["images/gallery/rope/01.png"],
-  'Tie-downs': ["images/gallery/tie-downs/01.png"],
-  'Safety': ["images/gallery/safety/01.png"]
+  "Shackles": ["images/gallery/shackles/01.png"],
+  "Hooks": ["images/gallery/hooks/01.png"],
+  "Hoists": ["images/gallery/hoists/01.png"],
+  "Nylon slings": ["images/gallery/nylon-slings/01.png"],
+  "Poly round slings": ["images/gallery/poly-round-slings/01.png"],
+  "Rope": ["images/gallery/rope/01.png"],
+  "Tie-downs": ["images/gallery/tie-downs/01.png"],
+  "Safety": ["images/gallery/safety/01.png"],
+  "Wire rope clips": ["images/gallery/wire-rope-clips/01.png"],
+  "Master links": ["images/gallery/master-links/01.png"],
+  "Binders": ["images/gallery/binders/01.png"],
+  "Snatch blocks": ["images/gallery/snatch-blocks/01.png"],
+  "Wedge sockets": ["images/gallery/wedge-sockets/01.png"]
 };
 const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function photoHTML(cat, grp, upn){

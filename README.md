@@ -15,7 +15,7 @@ no dependencies. Open `index.html` in a browser and it runs.
 - Public catalog browsable without signing in, with no pricing shown
 - Account request form with validation
 - Client login (demo accounts, cosmetic — see Limitations)
-- 498 items across 19 categories, with sub-tabs (domestic/import, hook type, hoist brand, chain grade)
+- 372 items across 14 categories, with sub-tabs (hook type, hoist brand, chain grade, ply)
 - Item selection shows unique part #, vendor part #, ship weight, and marked-up cost
 - Chain sold by the foot, straight cut only
 - Web sling capacity chart (vertical / choker / basket) by width and ply

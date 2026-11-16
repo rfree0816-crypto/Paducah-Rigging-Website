@@ -514,9 +514,18 @@ const KEY = 'phatrigging_v2';
    This is notification only — it is not authentication and not payment. */
 const ORDER_ENDPOINT = '';
 
+/* TEST MODE — orders still transmit, but every notification is prefixed [TEST]
+   so a live order can never be mistaken for a trial one. Set to false to go live. */
+const ORDER_TEST_MODE = true;
+
 function notifyOrder(order, user){
-  if(!ORDER_ENDPOINT) return;
+  if(!ORDER_ENDPOINT){
+    console.info('ORDER_ENDPOINT is empty — order kept in this browser only. Payload:', order);
+    return;
+  }
   const payload = {
+    _subject: (ORDER_TEST_MODE ? '[TEST] ' : '') + 'Order ' + order.id + ' — ' + (user.company || 'Customer') + ' — ' + (order.lines ? order.lines.length : 0) + ' line(s)',
+    test_mode: ORDER_TEST_MODE,
     order_id: order.id, placed: new Date().toISOString(),
     company: user.company, contact: user.contact, email: user.email,
     tier: tierOf(user.spend).name, ship_to: order.shipTo,
